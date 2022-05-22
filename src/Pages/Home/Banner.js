@@ -2,48 +2,48 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div>
-      <div class="carousel w-full">
-        <div id="item1" class="carousel-item w-full">
+    <div className="">
+      <div className="carousel w-full">
+        <div id="item1" className="carousel-item w-full">
           <img
-            src="https://i.ibb.co/5Y0HGjz/banner1.jpg"
+            src="https://i.ibb.co/6D41QHz/banner1.jpg"
             alt=""
-            class="w-full"
+            className="w-full"
           />
         </div>
-        <div id="item2" class="carousel-item w-full">
+        <div id="item2" className="carousel-item w-full">
           <img
-            src="https://i.ibb.co/yddCTZr/banner2.jpg"
+            src="https://i.ibb.co/L8VzPWq/banner2.jpg"
             alt=""
-            class="w-full"
+            className="w-full"
           />
         </div>
-        <div id="item3" class="carousel-item w-full">
+        <div id="item3" className="carousel-item w-full">
           <img
-            src="https://i.ibb.co/Mkvb60M/banner3.jpg"
+            src="https://i.ibb.co/YN5bW2d/banner3.jpg"
             alt=""
-            class="w-full"
+            className="w-full"
           />
         </div>
-        <div id="item4" class="carousel-item w-full">
+        <div id="item4" className="carousel-item w-full">
           <img
-            src="https://i.ibb.co/bvjGm3X/banner4.jpg"
+            src="https://i.ibb.co/P4dxSJr/banner4.jpg"
             alt=""
-            class="w-full"
+            className="w-full"
           />
         </div>
       </div>
-      <div class="flex justify-center w-full py-2 gap-2">
-        <a href="#item1" class="btn btn-sm btn-primary ">
+      <div className="flex justify-center w-full py-2 gap-2 bg-secondary">
+        <a href="#item1" className="btn btn-sm btn-primary ">
           1
         </a>
-        <a href="#item2" class="btn btn-sm btn-primary ">
+        <a href="#item2" className="btn btn-sm btn-primary ">
           2
         </a>
-        <a href="#item3" class="btn btn-sm btn-primary font-semibold">
+        <a href="#item3" className="btn btn-sm btn-primary font-semibold">
           3
         </a>
-        <a href="#item4" class="btn btn-sm btn-primary ">
+        <a href="#item4" className="btn btn-sm btn-primary ">
           4
         </a>
       </div>

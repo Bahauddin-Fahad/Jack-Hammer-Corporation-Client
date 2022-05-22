@@ -7,11 +7,15 @@ module.exports = {
     themes: [
       {
         JHCTheme: {
-          primary: "#FFD20A",
-          secondary: "#1A1A1A",
-          accent: "#3A4256",
-          neutral: "#3d4451",
-          "base-100": "#ffffff",
+          primary: "#fac915",
+          secondary: "#1f2937",
+          accent: "#37CDBE",
+          neutral: "#3D4451",
+          "base-100": "#FFFFFF",
+          info: "#3ABFF8",
+          success: "#166534",
+          warning: "#FBBD23",
+          error: "#e11d48",
         },
       },
       "dark",

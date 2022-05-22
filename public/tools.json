@@ -1,0 +1,83 @@
+[
+  {
+    "_id": 1,
+    "name": "FATMAX Tape Measure",
+    "img": "https://i.ibb.co/zPBGt07/inch-tape.jpg",
+    "description": "FATMAX is engineered to fit comfortably in the palm of your hand and equipped with our patented Twin-Core™ technology for a compact case design.",
+    "price": "$5",
+    "minOrderQuantity": 10,
+    "availableQuantity": 2000
+  },
+  {
+    "_id": 2,
+    "name": "Brushless Cordless 5-in-1 Drill Kit",
+    "img": "https://i.ibb.co/GnKL7Th/drill-kit.jpg",
+    "description": "Take on a wide range of drilling jobs with the incredible versatility offered by the XTREME™ 12V MAX* Brushless Cordless 5-in-1 Drill/Driver Kit.",
+    "price": "$140",
+    "minOrderQuantity": 5,
+    "availableQuantity": 980
+  },
+  {
+    "_id": 3,
+    "name": "Cutting Blade Size: 10 Inch, 1600W",
+    "img": "https://i.ibb.co/44kR9HK/saw-blade.jpg",
+    "description": "This Saw Blades are ideal for any wood-cutting application. The ripping blades, is engineered to deliver straight,cuts over the life of the blade.",
+    "price": "$14.5",
+    "minOrderQuantity": 10,
+    "availableQuantity": 1500
+  },
+  {
+    "_id": 4,
+    "name": "3 lb Fiberglass Drilling Hammer",
+    "img": "https://i.ibb.co/bWr3Sj2/hammer.jpg",
+    "description": "This hammer offers a concentrated strike face for superior impact.This sledge hammer is built tough to withstand those outdoor, rugged conditions.",
+    "price": "$20",
+    "minOrderQuantity": 10,
+    "availableQuantity": 1200
+  },
+  {
+    "_id": 5,
+    "name": "380mm x 11TPI Blade Armour Saw",
+    "img": "https://i.ibb.co/Tw0Jbzp/saw.jpg",
+    "description": "This FATMAX 15 saw is designed for sharp cuts. It has triple jet cut teeth and a BladeArmor coated blade for fast cutting to reduce friction.",
+    "price": "$11",
+    "minOrderQuantity": 10,
+    "availableQuantity": 1800
+  },
+  {
+    "_id": 6,
+    "name": "30 pc Ratcheting Screwdriver Set",
+    "img": "https://i.ibb.co/FsTt6NN/screw-driver-set.jpg",
+    "description": "Complete a variety of fastening jobs quickly and easily with this Multi-Bit Ratcheting Screwdriver Set.",
+    "price": "$25",
+    "minOrderQuantity": 5,
+    "availableQuantity": 800
+  },
+  {
+    "_id": 7,
+    "name": "Folding Hand Truck",
+    "img": "https://i.ibb.co/cy6JYtH/hand-truck.jpg",
+    "description": "Transport stock and heavy loads with the Folding Hand Truck. This adaptable utility cart folds and opens quickly to minimize the time.",
+    "price": "$34",
+    "minOrderQuantity": 5,
+    "availableQuantity": 965
+  },
+  {
+    "_id": 8,
+    "name": "Retractable Utility Knife",
+    "img": "https://i.ibb.co/v4rpDkd/knife.jpg",
+    "description": "Retractable Utility Knife features an optimized shape. The nose of the knife features an exposed blade step to speed up blade placement.",
+    "price": "$4",
+    "minOrderQuantity": 20,
+    "availableQuantity": 1900
+  },
+  {
+    "_id": 9,
+    "name": "4-3/8 in Jaw Capacity Quick Vise",
+    "img": "https://i.ibb.co/zQfRRGx/vise.jpg",
+    "description": "Jaw Capacity Quick Vise is ideal for DIY and hobbyist projects.The quick vise utilizes a slide for quick, easy positioning and a lever for tightening.",
+    "price": "$40",
+    "minOrderQuantity": 10,
+    "availableQuantity": 1430
+  }
+]
