@@ -14,7 +14,7 @@ const Tool = ({ tool }) => {
   } = tool;
   return (
     <div className="card glass hover:bg-secondary mx-auto bg-secondary text-white">
-      <div className="card mx-auto mt-3">
+      <div className="card glass mx-auto mt-3">
         <figure>
           <img src={img} alt="product" className="h-56" />
         </figure>

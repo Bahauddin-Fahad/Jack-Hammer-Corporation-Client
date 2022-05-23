@@ -10,7 +10,7 @@ import Footer from "./Pages/Shared/Footer";
 import Blogs from "./Pages/Blogs/Blogs";
 import MyProfile from "./Pages/MyProfile/MyProfile";
 import Reviews from "./Pages/Reviews/Reviews";
-import Purchase from "./Pages/Home/Purchase";
+import Purchase from "./Pages/Home/Purchase/Purchase";
 import NotFound from "./Pages/Shared/NotFound";
 function App() {
   return (

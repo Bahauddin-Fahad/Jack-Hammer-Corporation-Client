@@ -51,9 +51,12 @@ const Navbar = () => {
       </li>
       <li>
         {user ? (
-          <button className="font-semibold text-primary" onClick={logout}>
-            Sign Out
-          </button>
+          <div className="flex flex-col">
+            <p className="font-semibold text-primary">{user.displayName}</p>
+            <button className="font-semibold text-primary" onClick={logout}>
+              Sign Out
+            </button>
+          </div>
         ) : (
           <Link className="font-semibold text-primary" to="/login">
             Login

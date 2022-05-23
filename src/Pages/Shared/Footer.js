@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FaTools } from "react-icons/fa";
 
 const Footer = () => {
+  const today = new Date();
+  const year = today.getFullYear();
   return (
     <footer className=" bg-contain h-full flex flex-col justify-center bg-secondary text-white">
       <div className="footer p-10 grid grid-cols-2 lg:grid-cols-4">
@@ -98,8 +100,14 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="text-center mt-4">
-        <p>Copyright © 2022 - All right reserved</p>
+      <div className="text-center h-24 text-white flex justify-center items-center">
+        <h5 className="text-xl ">
+          All Right Reserved to {""}
+          <span className="text-primary font-semibold">
+            Jack Hammer Corporation {""}
+          </span>
+          @{year}
+        </h5>
       </div>
     </footer>
   );

@@ -1,22 +1,10 @@
-import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
 import Tool from "./Tool";
-import Loading from "../Shared/Loading";
+import useReactQuery from "../../Hooks/useReactQuery";
 
 const Tools = () => {
-  const {
-    data: tools,
-    isLoading,
-    refetch,
-  } = useQuery("tools", () =>
-    axios.get("http://localhost:5000/tools").then((data) => {
-      return data.data;
-    })
-  );
-  if (isLoading) {
-    return <Loading />;
-  }
+  const url = "http://localhost:5000/tools";
+  const { data: tools, refetch } = useReactQuery(url);
   return (
     <div className="m-10">
       <h2 className="font-bold text-3xl text-center">Tools</h2>
