@@ -1,12 +1,14 @@
 import React from "react";
 import Banner from "./Banner";
-import Products from "./Tools";
+import BusinessSummery from "./BusinessSummery";
+import Tools from "./Tools";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="mb-10">
       <Banner />
-      <Products />
+      <Tools />
+      <BusinessSummery />
     </div>
   );
 };

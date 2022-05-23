@@ -10,6 +10,8 @@ import Footer from "./Pages/Shared/Footer";
 import Blogs from "./Pages/Blogs/Blogs";
 import MyProfile from "./Pages/MyProfile/MyProfile";
 import Reviews from "./Pages/Reviews/Reviews";
+import Purchase from "./Pages/Home/Purchase";
+import NotFound from "./Pages/Shared/NotFound";
 function App() {
   return (
     <div className="App">
@@ -17,13 +19,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/purchase/:toolId" element={<Purchase />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/myprofile" element={<MyProfile />} />
+        <Route path="/reviews" element={<Reviews />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/myportfolio" element={<MyPortfolio />} />
-        <Route path="/reviews" element={<Reviews />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
