@@ -16,7 +16,7 @@ const useReactQuery = (url) => {
   if (isLoading) {
     return <Loading />;
   }
-  return { data, isLoading, refetch };
+  return { data, refetch };
 };
 
 export default useReactQuery;

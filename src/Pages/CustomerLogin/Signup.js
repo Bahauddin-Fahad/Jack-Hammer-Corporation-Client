@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -21,15 +24,15 @@ const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-  //Updating Profile
-  // const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  // Updating Profile
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
   const onSubmit = async (data) => {
     // console.log(data);
     const email = data.email;
     const password = data.password;
     await createUserWithEmailAndPassword(email, password);
-    // await updateProfile({ displayName: data.name });
+    await updateProfile({ displayName: data.name });
   };
 
   const [token] = useToken(user);
@@ -39,12 +42,12 @@ const Signup = () => {
     }
   }, [token, navigate, from]);
 
-  if (loading) {
+  if (loading || updating) {
     return <Loading />;
   }
 
   let signInError;
-  if (error) {
+  if (error || updateError) {
     signInError = (
       <p className="text-[red]">
         <span>{error?.message}</span>

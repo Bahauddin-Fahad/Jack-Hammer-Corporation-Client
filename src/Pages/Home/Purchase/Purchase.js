@@ -11,7 +11,7 @@ const Purchase = () => {
   return (
     <div className="glass bg-secondary hover:bg-secondary text-white pb-3">
       <ToolDetails refetch={refetch} tool={tool} />
-      <OrderForm tool={tool} />
+      <OrderForm tool={tool} refetch={refetch} />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import auth from "../../firebase.init";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
-
+  console.log(user);
   const logout = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
@@ -25,11 +25,11 @@ const Navbar = () => {
               Dashboard
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link className="font-semibold text-primary" to="/myprofile">
               My Profile
             </Link>
-          </li>
+          </li> */}
         </>
       )}
 

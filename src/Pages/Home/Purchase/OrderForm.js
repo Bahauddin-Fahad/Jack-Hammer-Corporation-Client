@@ -1,9 +1,19 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
-const OrderForm = ({ tool }) => {
+const OrderForm = ({ tool, refetch }) => {
+  let _id, price, minOrderQuantity, availableQuantity;
+
+  if (tool) {
+    _id = tool._id;
+    price = tool.price;
+    minOrderQuantity = tool.minOrderQuantity;
+    availableQuantity = tool.availableQuantity;
+  }
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
   const [quantity, setQuantity] = useState(0);
@@ -11,13 +21,13 @@ const OrderForm = ({ tool }) => {
 
   const quantityCheck = (e) => {
     const inputQuantity = parseInt(e.target.value);
-    if (inputQuantity < tool.minOrderQuantity) {
+    if (inputQuantity < minOrderQuantity) {
       setError(
         <p className="text-sm text-primary font-bold mt-2">
           Can't Order Below Minimum Order Quantity
         </p>
       );
-    } else if (inputQuantity > tool.availableQuantity) {
+    } else if (inputQuantity > availableQuantity) {
       setError(
         <p className="text-sm text-primary font-bold mt-2">
           Sorry!! The Quantity you want is not available right now
@@ -29,21 +39,52 @@ const OrderForm = ({ tool }) => {
     setQuantity(inputQuantity);
   };
 
-  const onSubmit = (data) => {
-    data.name = user?.displayName;
-    data.email = user?.email;
-    const totalPrice = parseInt(data.totalPrice);
-    data.totalPrice = totalPrice;
+  const onSubmit = async (data) => {
+    const name = user.displayName;
+    const email = user.email;
     if (!quantity) {
-      setQuantity(tool.minOrderQuantity);
+      setQuantity(minOrderQuantity);
     }
-    if (
-      quantity <= tool?.availableQuantity &&
-      quantity >= tool?.minOrderQuantity
-    ) {
-      data.quantity = quantity;
+    if (quantity <= availableQuantity && quantity >= minOrderQuantity) {
+      const orderDetails = {
+        name: name,
+        email: email,
+        phone: data.phone,
+        address: data.address,
+        productId: _id,
+        productName: tool?.name,
+        totalPrice: quantity ? quantity * price : minOrderQuantity * price,
+        quantity: quantity,
+      };
+      //   console.log(orderDetails);
       setError("");
-      console.log(data);
+      const orderUrl = "http://localhost:5000/order";
+      await axios.post(orderUrl, orderDetails).then((response) => {
+        console.log(response.data);
+        if (response.data.success) {
+          toast.success(
+            `Your order for ${quantity} pieces of ${tool?.name} is Confirmed`,
+            {
+              theme: "colored",
+            }
+          );
+        } else {
+          toast.error(
+            `You already have ordered for ${tool?.name} of amount ${quantity} pieces`,
+            {
+              theme: "colored",
+            }
+          );
+        }
+        refetch();
+      });
+
+      const remaniningQuantity = availableQuantity - quantity;
+      const newAvailableQuantity = { remaniningQuantity };
+      const url = `http://localhost:5000/tool/${_id}`;
+      await axios.put(url, newAvailableQuantity).then((res) => {
+        console.log(res);
+      });
     }
   };
   return (
@@ -59,9 +100,8 @@ const OrderForm = ({ tool }) => {
               <span className="label-text text-primary">Name</span>
             </label>
             <input
-              className="input input-bordered text-secondary font-semibold m-0"
-              value={user?.displayName}
-              {...register("name")}
+              className="input input-bordered text-secondary font-semibold placeholder:text-secondary"
+              placeholder={user?.displayName || ""}
               readOnly
             />
           </div>
@@ -70,9 +110,8 @@ const OrderForm = ({ tool }) => {
               <span className="label-text text-primary">Email</span>
             </label>
             <input
-              className="input input-bordered text-secondary font-semibold"
-              value={user?.email}
-              {...register("email")}
+              className="input input-bordered text-secondary font-semibold placeholder:text-secondary"
+              placeholder={user?.email || ""}
               readOnly
             />
           </div>
@@ -105,7 +144,7 @@ const OrderForm = ({ tool }) => {
               <input
                 onChange={quantityCheck}
                 className="input input-bordered text-secondary font-semibold"
-                value={quantity || tool?.minOrderQuantity}
+                value={quantity || minOrderQuantity}
                 type="number"
                 required
               />
@@ -117,8 +156,8 @@ const OrderForm = ({ tool }) => {
                 </span>
               </label>
               <input
-                className="input input-bordered text-secondary font-semibold"
-                value={tool?.price}
+                className="input input-bordered text-secondary font-semibold placeholder:text-secondary"
+                placeholder={price}
                 type="number"
                 readOnly
               />
@@ -130,14 +169,12 @@ const OrderForm = ({ tool }) => {
                 </span>
               </label>
               <input
-                className="input input-bordered text-secondary font-semibold"
-                placeholder="Total Price"
-                value={
-                  quantity * tool?.price || tool?.minOrderQuantity * tool?.price
-                }
+                className="input input-bordered text-secondary font-semibold placeholder:text-secondary"
+                value={quantity * price || minOrderQuantity * price}
                 type="number"
-                {...register("totalPrice", { required: true })}
                 required
+                readOnly
+                // {...register("totalPrice", { required: true })}
               />
             </div>
           </div>
