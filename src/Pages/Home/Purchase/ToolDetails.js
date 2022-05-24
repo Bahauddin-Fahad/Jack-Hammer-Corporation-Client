@@ -30,7 +30,7 @@ const ToolDetails = ({ tool }) => {
         </p>
         <div className="card-actions lg:mt-3">
           <h2 className="text-xl font-semibold text-primary">
-            Price: <span className="text-white">{tool?.price}</span>
+            Price: <span className="text-white"> ${tool?.price}</span>
           </h2>
         </div>
       </div>

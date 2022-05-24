@@ -39,7 +39,7 @@ const Tool = ({ tool }) => {
         </p>
         <div className="card-actions  justify-around items-center mt-3">
           <h2 className="text-xl font-semibold ">
-            Price: <span className="text-primary">{price}</span>
+            Price: <span className="text-primary"> ${price}</span>
           </h2>
           <button
             onClick={() => navigate(`/purchase/${_id}`)}
