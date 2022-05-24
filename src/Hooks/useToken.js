@@ -2,20 +2,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useToken = (user) => {
+  // console.log(user?.user?.email);
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    // console.log(user?.user?.email);
     const email = user?.user?.email;
     const currentUser = { email: email };
     if (email) {
       axios
         .put(`http://localhost:5000/user/${email}`, currentUser)
         .then((data) => {
-          const accessToken = data?.data?.token;
+          console.log(data);
+          const accessToken = data?.data?.accessToken;
           localStorage.setItem("accessToken", accessToken);
           setToken(accessToken);
-          //   console.log(data.data.result);
         });
     }
   }, [user]);
