@@ -1,5 +1,6 @@
 import { signOut } from "firebase/auth";
 import React from "react";
+import { HiMenuAlt1, HiOutlineDotsVertical } from "react-icons/hi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -70,20 +71,7 @@ const Navbar = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-primary lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+            <HiMenuAlt1 className="h-6 w-6" />
           </label>
           <ul
             tabIndex="0"
@@ -94,7 +82,7 @@ const Navbar = () => {
         </div>
         <Link
           to="/"
-          className="btn btn-ghost normal-case text-2xl font-bold text-base-200 hidden md:flex lg:flex"
+          className="btn btn-ghost normal-case text-2xl font-bold text-base-200 hidden sm:flex md:flex lg:flex"
         >
           Jack Hammer Corporation
         </Link>
@@ -107,7 +95,7 @@ const Navbar = () => {
           htmlFor="dashboard-drawer"
           className="btn btn-primary drawer-button lg:hidden"
         >
-          Sidebar
+          <HiOutlineDotsVertical />
         </label>
       </div>
     </div>
