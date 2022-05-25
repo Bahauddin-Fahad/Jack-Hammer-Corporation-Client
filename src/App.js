@@ -18,6 +18,10 @@ import Reviews from "./Pages/Reviews/Reviews";
 import Purchase from "./Pages/Home/Purchase/Purchase";
 import NotFound from "./Pages/Shared/NotFound";
 import { ToastContainer } from "react-toastify";
+import MakeAdmin from "./Pages/Dashboard/ForAdmins/MakeAdmin";
+import AddAProduct from "./Pages/Dashboard/ForAdmins/AddAProduct";
+import ManageProducts from "./Pages/Dashboard/ForAdmins/ManageProducts";
+import RequireAdmin from "./Pages/CustomerLogin/RequireAdmin";
 function App() {
   return (
     <div className="App">
@@ -42,8 +46,32 @@ function App() {
           }
         >
           <Route index element={<MyProfile />} />
-          <Route path="addreview" element={<AddAReview />} />
-          <Route path="myorders" element={<MyOrders />} />
+          <Route path="addReview" element={<AddAReview />} />
+          <Route path="myOrders" element={<MyOrders />} />
+          <Route
+            path="makeAdmin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="addProduct"
+            element={
+              <RequireAdmin>
+                <AddAProduct />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="manageProducts"
+            element={
+              <RequireAdmin>
+                <ManageProducts />
+              </RequireAdmin>
+            }
+          />
         </Route>
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/blogs" element={<Blogs />} />

@@ -8,20 +8,24 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
-  console.log(user.email);
+
   useEffect(() => {
     if (user) {
       const url = `http://localhost:5000/orders?email=${user.email}`;
       axios
-        .get(url)
+        .get(url, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           setOrders(data.data);
         })
         .catch((err) => {
           if (err.response.status === 401 || err.response.status === 403) {
             signOut(auth);
-            // localStorage.removeItem("accessToken");
+            localStorage.removeItem("accessToken");
             navigate("/home");
           }
         });
@@ -59,11 +63,18 @@ const MyOrders = () => {
                 <td>${order.totalPrice}</td>
                 <td>
                   {order.totalPrice && !order.paid && (
-                    <Link to={`/dashboard/payment/${order._id}`}>
-                      <button className="btn btn-xs btn-success text-white ">
-                        Pay Now
-                      </button>
-                    </Link>
+                    <>
+                      <Link to={`/dashboard/payment/${order._id}`}>
+                        <button className="btn btn-xs btn-success text-white ">
+                          Pay Now
+                        </button>
+                      </Link>
+                      <Link to="">
+                        <button className="ml-3 btn btn-xs btn-error text-white ">
+                          Cancel Order
+                        </button>
+                      </Link>
+                    </>
                   )}
                   {order.totalPrice && order.paid && (
                     <div>

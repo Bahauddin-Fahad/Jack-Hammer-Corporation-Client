@@ -8,9 +8,10 @@ const Purchase = () => {
   const { toolId } = useParams();
   const url = `http://localhost:5000/purchase/${toolId}`;
   const { data: tool, refetch } = useReactQuery(url);
+
   return (
     <div className="glass bg-secondary hover:bg-secondary text-white pb-3">
-      <ToolDetails refetch={refetch} tool={tool} />
+      <ToolDetails tool={tool} />
       <OrderForm tool={tool} refetch={refetch} />
     </div>
   );

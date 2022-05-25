@@ -39,7 +39,7 @@ const OrderForm = ({ tool, refetch }) => {
     setQuantity(inputQuantity);
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data, event) => {
     const name = user.displayName;
     const email = user.email;
     if (!quantity) {
@@ -68,6 +68,14 @@ const OrderForm = ({ tool, refetch }) => {
               theme: "colored",
             }
           );
+          refetch();
+          event.target.reset();
+          const remaniningQuantity = availableQuantity - quantity;
+          const newAvailableQuantity = { remaniningQuantity };
+          const url = `http://localhost:5000/tool/${_id}`;
+          axios.put(url, newAvailableQuantity).then((res) => {
+            console.log(res);
+          });
         } else {
           toast.error(
             `You already have ordered for ${tool?.name} of amount ${quantity} pieces`,
@@ -76,14 +84,7 @@ const OrderForm = ({ tool, refetch }) => {
             }
           );
         }
-        refetch();
-      });
-
-      const remaniningQuantity = availableQuantity - quantity;
-      const newAvailableQuantity = { remaniningQuantity };
-      const url = `http://localhost:5000/tool/${_id}`;
-      await axios.put(url, newAvailableQuantity).then((res) => {
-        console.log(res);
+        // refetch();
       });
     }
   };
