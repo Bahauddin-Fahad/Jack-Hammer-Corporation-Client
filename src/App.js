@@ -6,7 +6,7 @@ import MyOrders from "./Pages/Dashboard/ForUsers/MyOrders";
 import AddAReview from "./Pages/Dashboard/ForUsers/AddAReview";
 import Home from "./Pages/Home/Home";
 import RequireAuth from "./Pages/CustomerLogin/RequireAuth";
-
+import RequireAdmin from "./Pages/CustomerLogin/RequireAdmin";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import Signup from "./Pages/CustomerLogin/Signup";
 import Login from "./Pages/CustomerLogin/Login";
@@ -19,9 +19,8 @@ import Purchase from "./Pages/Home/Purchase/Purchase";
 import NotFound from "./Pages/Shared/NotFound";
 import { ToastContainer } from "react-toastify";
 import MakeAdmin from "./Pages/Dashboard/ForAdmins/MakeAdmin";
-import AddAProduct from "./Pages/Dashboard/ForAdmins/AddAProduct";
-import ManageProducts from "./Pages/Dashboard/ForAdmins/ManageProducts";
-import RequireAdmin from "./Pages/CustomerLogin/RequireAdmin";
+import AddATool from "./Pages/Dashboard/ForAdmins/AddATool";
+import ManageTools from "./Pages/Dashboard/ForAdmins/ManageTools";
 function App() {
   return (
     <div className="App">
@@ -57,18 +56,18 @@ function App() {
             }
           />
           <Route
-            path="addProduct"
+            path="addTool"
             element={
               <RequireAdmin>
-                <AddAProduct />
+                <AddATool />
               </RequireAdmin>
             }
           />
           <Route
-            path="manageProducts"
+            path="manageTools"
             element={
               <RequireAdmin>
-                <ManageProducts />
+                <ManageTools />
               </RequireAdmin>
             }
           />

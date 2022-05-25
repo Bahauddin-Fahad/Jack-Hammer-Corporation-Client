@@ -14,7 +14,7 @@ const OrderForm = ({ tool, refetch }) => {
     minOrderQuantity = tool.minOrderQuantity;
     availableQuantity = tool.availableQuantity;
   }
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [error, setError] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [user] = useAuthState(auth);
@@ -39,7 +39,7 @@ const OrderForm = ({ tool, refetch }) => {
     setQuantity(inputQuantity);
   };
 
-  const onSubmit = async (data, event) => {
+  const onSubmit = async (data) => {
     const name = user.displayName;
     const email = user.email;
     if (!quantity) {
@@ -58,7 +58,8 @@ const OrderForm = ({ tool, refetch }) => {
       };
       //   console.log(orderDetails);
       setError("");
-      const orderUrl = "http://localhost:5000/order";
+      const orderUrl =
+        "https://jack-hammer-corporation-server.herokuapp.com/order";
       await axios.post(orderUrl, orderDetails).then((response) => {
         console.log(response.data);
         if (response.data.success) {
@@ -69,10 +70,10 @@ const OrderForm = ({ tool, refetch }) => {
             }
           );
           refetch();
-          event.target.reset();
+          reset();
           const remaniningQuantity = availableQuantity - quantity;
           const newAvailableQuantity = { remaniningQuantity };
-          const url = `http://localhost:5000/tool/${_id}`;
+          const url = `https://jack-hammer-corporation-server.herokuapp.com/tool/${_id}`;
           axios.put(url, newAvailableQuantity).then((res) => {
             console.log(res);
           });
@@ -89,9 +90,9 @@ const OrderForm = ({ tool, refetch }) => {
     }
   };
   return (
-    <div>
+    <div className="flex justify-center">
       <form
-        className="form card w-full max-w-md shadow-2xl glass mx-auto "
+        className="form card w-full max-w-lg shadow-2xl glass mx-3"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="card-body">
@@ -137,7 +138,7 @@ const OrderForm = ({ tool, refetch }) => {
               {...register("phone", { required: true })}
             />
           </div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2">
             <div className="form-control ">
               <label className="label font-semibold">
                 <span className="label-text text-primary">Quantity</span>

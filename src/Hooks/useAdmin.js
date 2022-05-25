@@ -8,11 +8,14 @@ const useAdmin = (user) => {
     const email = user?.email;
     if (email) {
       axios
-        .get(`http://localhost:5000/admin/${email}`, {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        })
+        .get(
+          `https://jack-hammer-corporation-server.herokuapp.com/admin/${email}`,
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        )
         .then((data) => {
           setAdmin(data.data.admin);
           setAdminLoading(false);

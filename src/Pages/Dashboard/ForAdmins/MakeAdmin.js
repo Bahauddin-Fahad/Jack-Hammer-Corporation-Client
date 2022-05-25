@@ -4,7 +4,7 @@ import useReactQuery from "../../../Hooks/useReactQuery";
 // import Loading from "../../Shared/Loading";
 import UserList from "./UserList";
 const MakeAdmin = () => {
-  const url = "http://localhost:5000/users";
+  const url = "https://jack-hammer-corporation-server.herokuapp.com/users";
   const header = {
     headers: {
       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -30,7 +30,7 @@ const MakeAdmin = () => {
   //   }
   const { data: users, refetch } = useReactQuery(url, header);
   return (
-    <div>
+    <div className="fadeIn">
       <h2 className="text-left ml-3 text-lg text-primary font-bold">
         All Users: {users?.length}
       </h2>

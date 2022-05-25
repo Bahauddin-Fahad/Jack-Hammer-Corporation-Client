@@ -8,10 +8,10 @@ const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   return (
-    <div className="drawer drawer-mobile bg-secondary hover:bg-secondary glass">
+    <div className="drawer drawer-mobile bg-secondary hover:bg-secondary glass fadeIn">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content mt-2">
-        <h2 className="font-bold text-primary text-xs text-center">
+        <h2 className="text-right mr-3 font-bold text-primary text-xs">
           Logged In as : {user.email}
         </h2>
         <h2 className="font-bold text-primary text-2xl text-center">
@@ -64,17 +64,17 @@ const Dashboard = () => {
               <li>
                 <Link
                   className="text-primary font-bold"
-                  to="/dashboard/addProduct"
+                  to="/dashboard/addTool"
                 >
-                  Add A Product
+                  Add A Tool
                 </Link>
               </li>
               <li>
                 <Link
                   className="text-primary font-bold"
-                  to="/dashboard/manageProducts"
+                  to="/dashboard/manageTools"
                 >
-                  Manage Products
+                  Manage Tools
                 </Link>
               </li>
             </>

@@ -3,7 +3,7 @@ import Tool from "./Tool";
 import useReactQuery from "../../Hooks/useReactQuery";
 
 const Tools = () => {
-  const url = "http://localhost:5000/tools";
+  const url = "https://jack-hammer-corporation-server.herokuapp.com/tools";
   const { data: tools, refetch } = useReactQuery(url);
   useEffect(() => {
     // refetch();

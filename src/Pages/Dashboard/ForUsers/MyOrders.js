@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (user) {
-      const url = `http://localhost:5000/orders?email=${user.email}`;
+      const url = `https://jack-hammer-corporation-server.herokuapp.com/orders?email=${user.email}`;
       axios
         .get(url, {
           headers: {

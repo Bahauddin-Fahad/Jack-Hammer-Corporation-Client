@@ -5,7 +5,7 @@ const UserList = ({ user, index, refetch }) => {
   const { email, role } = user;
 
   const makeAdmin = () => {
-    const url = `http://localhost:5000/user/${email}`;
+    const url = `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`;
     fetch(url, {
       method: "PATCH",
       headers: {
