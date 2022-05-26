@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const DeleteConfirmModel = ({ deleteTool, setDeleteTool, refetch }) => {
   const { _id, name } = deleteTool;
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/tool/${id}`;
+    const url = `https://jack-hammer-corporation-server.herokuapp.com/tool/${id}`;
     const header = {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

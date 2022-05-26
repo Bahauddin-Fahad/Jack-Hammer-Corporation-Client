@@ -7,7 +7,7 @@ import useReactQuery from "../../../Hooks/useReactQuery";
 const AddAReview = () => {
   const [user] = useAuthState(auth);
 
-  const url = `http://localhost:5000/review/${user?.email}`;
+  const url = `https://jack-hammer-corporation-server.herokuapp.com/review/${user?.email}`;
   const { data: userReview, refetch } = useReactQuery(url);
 
   const showRating = () => {
@@ -32,7 +32,10 @@ const AddAReview = () => {
     const review = { email, comment, rating };
 
     await axios
-      .put(`http://localhost:5000/review/${email}`, review)
+      .put(
+        `https://jack-hammer-corporation-server.herokuapp.com/review/${email}`,
+        review
+      )
       .then((data) => {
         if (data?.data?.success) {
           toast.success("Review submitted successfully", { theme: "colored" });

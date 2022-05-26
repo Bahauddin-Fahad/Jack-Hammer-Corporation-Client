@@ -16,7 +16,10 @@ const useToken = (user) => {
     };
     if (email) {
       axios
-        .put(`http://localhost:5000/user/${email}`, currentUser)
+        .put(
+          `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`,
+          currentUser
+        )
         .then((data) => {
           console.log(data);
           const accessToken = data?.data?.accessToken;

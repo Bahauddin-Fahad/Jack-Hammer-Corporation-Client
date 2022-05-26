@@ -8,7 +8,7 @@ import axios from "axios";
 
 const ManageAllOrders = () => {
   const [order, setOrder] = useState(null);
-  const url = "http://localhost:5000/get/orders";
+  const url = "https://jack-hammer-corporation-server.herokuapp.com/get/orders";
   const header = {
     headers: {
       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -18,11 +18,14 @@ const ManageAllOrders = () => {
   const { data: orders, refetch } = useReactQuery(url, header);
   const handelShift = (id) => {
     axios
-      .patch(`http://localhost:5000/shift/order/${id}`, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
+      .patch(
+        `https://jack-hammer-corporation-server.herokuapp.com/shift/order/${id}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
       .then((data) => {
         console.log(data.data);
         if (data.data.modifiedCount > 0) {
@@ -33,12 +36,15 @@ const ManageAllOrders = () => {
   };
 
   const cancelOrder = (id) => {
-    fetch(`http://localhost:5000/cancel/order/${id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://jack-hammer-corporation-server.herokuapp.com/cancel/order/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

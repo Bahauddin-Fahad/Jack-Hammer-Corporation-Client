@@ -19,7 +19,10 @@ const MyProfile = () => {
     const profile = { name, email, phone, address, linkedIn };
     console.log(profile);
     await axios
-      .put(`http://localhost:5000/user/${email}`, profile)
+      .put(
+        `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`,
+        profile
+      )
       .then((data) => {
         if (data) {
           toast.success("Information Updated", { theme: "colored" });
