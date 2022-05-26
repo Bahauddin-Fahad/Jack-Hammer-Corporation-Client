@@ -55,13 +55,15 @@ const OrderForm = ({ tool, refetch }) => {
         toolName: tool?.name,
         totalPrice: quantity ? quantity * price : minOrderQuantity * price,
         quantity: quantity,
+        status: false,
+        paid: false,
+        shift: false,
       };
-      console.log(orderDetails);
       setError("");
       const orderUrl = "http://localhost:5000/order";
       await axios.post(orderUrl, orderDetails).then((response) => {
-        console.log(response.data);
-        if (response.data.success) {
+        console.log(response.data.orderDetails);
+        if (response.data.success || response.data.orderDetails.shift) {
           toast.success(
             `Your order for ${quantity} pieces of ${tool?.name} is Confirmed`,
             {

@@ -18,7 +18,10 @@ const Dashboard = () => {
           Dashboard
         </h2>
 
-        <Outlet />
+        <div className="py-5">
+          {" "}
+          <Outlet />
+        </div>
       </div>
       <div className="drawer-side ">
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>

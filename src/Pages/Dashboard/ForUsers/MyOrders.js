@@ -31,7 +31,7 @@ const MyOrders = () => {
     }
   }, [user, navigate]);
   return (
-    <div>
+    <div className="fadeIn">
       <h2 className="text-lg text-primary font-bold text-left ml-3">
         My Orders : {orders.length}
       </h2>
@@ -48,6 +48,7 @@ const MyOrders = () => {
               <th>
                 Total Amount <small>(USD)</small>
               </th>
+              <th>Status</th>
               <th>Payment</th>
             </tr>
           </thead>
@@ -59,6 +60,13 @@ const MyOrders = () => {
                 <td>{order.toolName}</td>
                 <td>{order.quantity} Pieces</td>
                 <td>${order.totalPrice}</td>
+                <td>
+                  {!order.paid && (
+                    <p className="font-semibold text-error">Not Paid</p>
+                  )}
+                  {order.status && !order.shift && "Pending"}
+                  {order.shift && "Shifted"}
+                </td>
                 <td>
                   {order.totalPrice && !order.paid && (
                     <>
@@ -80,7 +88,7 @@ const MyOrders = () => {
                         PAID
                       </div>
                       <p className="font-semibold">
-                        Transaction Id:{" "}
+                        Transaction:{" "}
                         <span className="text-success ">
                           {order.transactionId}
                         </span>

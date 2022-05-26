@@ -13,7 +13,6 @@ import Login from "./Pages/CustomerLogin/Login";
 import Navbar from "./Pages/Shared/Navbar";
 import Footer from "./Pages/Shared/Footer";
 import Blogs from "./Pages/Blogs/Blogs";
-import MyProfile from "./Pages/MyProfile/MyProfile";
 import Reviews from "./Pages/Reviews/Reviews";
 import Purchase from "./Pages/Home/Purchase/Purchase";
 import NotFound from "./Pages/Shared/NotFound";
@@ -23,6 +22,7 @@ import AddATool from "./Pages/Dashboard/ForAdmins/AddATool";
 import ManageTools from "./Pages/Dashboard/ForAdmins/ManageTools";
 import ManageAllOrders from "./Pages/Dashboard/ForAdmins/ManageAllOrders";
 import Payment from "./Pages/Dashboard/ForUsers/Payment";
+import MyProfile from "./Pages/Dashboard/MyProfile";
 function App() {
   return (
     <div className="App">

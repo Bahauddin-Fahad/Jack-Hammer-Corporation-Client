@@ -28,7 +28,6 @@ const Signup = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
   const onSubmit = async (data) => {
-    // console.log(data);
     const email = data.email;
     const password = data.password;
     await createUserWithEmailAndPassword(email, password);
