@@ -63,7 +63,7 @@ const OrderForm = ({ tool, refetch }) => {
       const orderUrl = "http://localhost:5000/order";
       await axios.post(orderUrl, orderDetails).then((response) => {
         console.log(response.data.orderDetails);
-        if (response.data.success || response.data.orderDetails.shift) {
+        if (response.data.success) {
           toast.success(
             `Your order for ${quantity} pieces of ${tool?.name} is Confirmed`,
             {

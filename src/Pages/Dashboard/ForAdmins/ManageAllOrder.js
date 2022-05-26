@@ -36,7 +36,7 @@ const ManageAllOrder = ({ order, index, handelShift, setOrder }) => {
           Shift
         </button>
         <label
-          htmlFor="my-modal"
+          htmlFor="cancel-order-admin-modal"
           className=" btn-xs btn-error modal-button btn "
           onClick={() => setOrder(order)}
           disabled={paid || shift}

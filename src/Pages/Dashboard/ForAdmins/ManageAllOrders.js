@@ -3,7 +3,7 @@ import useReactQuery from "../../../Hooks/useReactQuery";
 import { toast } from "react-toastify";
 import ManageAllOrder from "./ManageAllOrder";
 import "react-toastify/dist/ReactToastify.css";
-import CancelOrder from "./CancelOrder";
+import CancelOrderAdmin from "./CancelOrderAdmin";
 import axios from "axios";
 
 const ManageAllOrders = () => {
@@ -87,7 +87,10 @@ const ManageAllOrders = () => {
             ))}
           </tbody>
         </table>
-        <CancelOrder cancelOrder={cancelOrder} order={order}></CancelOrder>
+        <CancelOrderAdmin
+          cancelOrder={cancelOrder}
+          order={order}
+        ></CancelOrderAdmin>
       </div>
     </>
   );
