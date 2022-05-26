@@ -77,6 +77,14 @@ const Dashboard = () => {
                   Manage Tools
                 </Link>
               </li>
+              <li>
+                <Link
+                  className="text-primary font-bold"
+                  to="/dashboard/manageAllOrders"
+                >
+                  Manage All Orders
+                </Link>
+              </li>
             </>
           )}
         </ul>

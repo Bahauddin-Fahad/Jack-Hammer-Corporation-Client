@@ -6,7 +6,7 @@ const Footer = () => {
   const today = new Date();
   const year = today.getFullYear();
   return (
-    <footer className=" bg-contain h-full flex flex-col justify-center bg-secondary text-white">
+    <footer className="bg-contain h-full flex flex-col justify-center bg-secondary text-white">
       <div className="footer p-10 grid grid-cols-2 lg:grid-cols-4">
         <div className="mx-auto">
           <FaTools className="h-10 w-10" />

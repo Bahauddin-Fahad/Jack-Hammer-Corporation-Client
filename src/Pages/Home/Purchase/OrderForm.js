@@ -51,15 +51,14 @@ const OrderForm = ({ tool, refetch }) => {
         email: email,
         phone: data.phone,
         address: data.address,
-        productId: _id,
-        productName: tool?.name,
+        toolId: _id,
+        toolName: tool?.name,
         totalPrice: quantity ? quantity * price : minOrderQuantity * price,
         quantity: quantity,
       };
-      //   console.log(orderDetails);
+      console.log(orderDetails);
       setError("");
-      const orderUrl =
-        "https://jack-hammer-corporation-server.herokuapp.com/order";
+      const orderUrl = "http://localhost:5000/order";
       await axios.post(orderUrl, orderDetails).then((response) => {
         console.log(response.data);
         if (response.data.success) {
@@ -73,7 +72,7 @@ const OrderForm = ({ tool, refetch }) => {
           reset();
           const remaniningQuantity = availableQuantity - quantity;
           const newAvailableQuantity = { remaniningQuantity };
-          const url = `https://jack-hammer-corporation-server.herokuapp.com/tool/${_id}`;
+          const url = `http://localhost:5000/tool/${_id}`;
           axios.put(url, newAvailableQuantity).then((res) => {
             console.log(res);
           });

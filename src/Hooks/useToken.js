@@ -6,14 +6,12 @@ const useToken = (user) => {
   const [token, setToken] = useState("");
 
   useEffect(() => {
+    const name = user?.user?.displayName || "";
     const email = user?.user?.email;
-    const currentUser = { email: email };
+    const currentUser = { name: name, email: email };
     if (email) {
       axios
-        .put(
-          `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`,
-          currentUser
-        )
+        .put(`http://localhost:5000/user/${email}`, currentUser)
         .then((data) => {
           console.log(data);
           const accessToken = data?.data?.accessToken;

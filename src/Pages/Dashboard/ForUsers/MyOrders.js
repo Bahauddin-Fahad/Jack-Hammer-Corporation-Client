@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (user) {
-      const url = `https://jack-hammer-corporation-server.herokuapp.com/orders?email=${user.email}`;
+      const url = `http://localhost:5000/orders?email=${user.email}`;
       axios
         .get(url, {
           headers: {
@@ -19,7 +19,6 @@ const MyOrders = () => {
           },
         })
         .then((data) => {
-          // console.log(data);
           setOrders(data.data);
         })
         .catch((err) => {
@@ -31,7 +30,6 @@ const MyOrders = () => {
         });
     }
   }, [user, navigate]);
-  console.log(orders);
   return (
     <div>
       <h2 className="text-lg text-primary font-bold text-left ml-3">
@@ -54,11 +52,11 @@ const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order, index) => (
+            {orders?.map((order, index) => (
               <tr key={index}>
                 <th>{index + 1}</th>
                 <td>{order.name}</td>
-                <td>{order.productName}</td>
+                <td>{order.toolName}</td>
                 <td>{order.quantity} Pieces</td>
                 <td>${order.totalPrice}</td>
                 <td>
@@ -78,7 +76,7 @@ const MyOrders = () => {
                   )}
                   {order.totalPrice && order.paid && (
                     <div>
-                      <div className="text-center text-white w-1/3 font-semibold bg-emerald-200 rounded-md mx-auto">
+                      <div className="text-center text-white w-1/3 font-semibold bg-accent rounded-md mx-auto">
                         PAID
                       </div>
                       <p className="font-semibold">

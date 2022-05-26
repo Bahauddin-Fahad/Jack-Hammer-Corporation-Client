@@ -25,11 +25,6 @@ const Navbar = () => {
               Dashboard
             </Link>
           </li>
-          {/* <li>
-            <Link className="font-semibold text-primary" to="/myprofile">
-              My Profile
-            </Link>
-          </li> */}
         </>
       )}
 

@@ -4,30 +4,12 @@ import useReactQuery from "../../../Hooks/useReactQuery";
 // import Loading from "../../Shared/Loading";
 import UserList from "./UserList";
 const MakeAdmin = () => {
-  const url = "https://jack-hammer-corporation-server.herokuapp.com/users";
+  const url = "http://localhost:5000/users";
   const header = {
     headers: {
       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   };
-  //   const {
-  //     data: users,
-  //     isLoading,
-  //     refetch,
-  //   } = useQuery("users", () =>
-  //     axios
-  //       .get(url, {
-  //         headers: {
-  //           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //         },
-  //       })
-  //       .then((data) => {
-  //         return data.data;
-  //       })
-  //   );
-  //   if (isLoading) {
-  //     return <Loading />;
-  //   }
   const { data: users, refetch } = useReactQuery(url, header);
   return (
     <div className="fadeIn">

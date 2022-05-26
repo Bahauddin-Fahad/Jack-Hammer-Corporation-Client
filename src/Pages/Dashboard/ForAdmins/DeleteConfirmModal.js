@@ -11,7 +11,6 @@ const DeleteConfirmModel = ({ deleteTool, setDeleteTool, refetch }) => {
       },
     };
     axios.delete(url, header).then((data) => {
-      console.log(data);
       if (data.data.acknowledged) {
         toast.success(`${name} is Deleted Successfully`, { theme: "colored" });
         refetch();

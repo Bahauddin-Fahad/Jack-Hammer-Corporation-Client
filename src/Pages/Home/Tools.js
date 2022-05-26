@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import Tool from "./Tool";
 import useReactQuery from "../../Hooks/useReactQuery";
+import { Link } from "react-router-dom";
 
 const Tools = () => {
-  const url = "https://jack-hammer-corporation-server.herokuapp.com/tools";
+  const url = "http://localhost:5000/tools";
   const { data: tools, refetch } = useReactQuery(url);
   useEffect(() => {
     // refetch();
@@ -15,6 +16,14 @@ const Tools = () => {
         {tools?.slice(-6).map((tool) => (
           <Tool key={tool._id} tool={tool} refetch={refetch} />
         ))}
+      </div>
+      <div className="flex justify-center">
+        <Link
+          className="no-underline inline-block bg-primary text-secondary font-bold py-1 px-3 mt-4 rounded-md mx-auto w-2/5 text-center"
+          to="/dashboard/manageTools"
+        >
+          Manage Tools
+        </Link>
       </div>
     </div>
   );

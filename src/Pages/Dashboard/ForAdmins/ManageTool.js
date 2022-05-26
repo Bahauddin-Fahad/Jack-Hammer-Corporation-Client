@@ -12,7 +12,7 @@ const ManageTool = ({ tool, setDeleteTool }) => {
       <div className="flex flex-col justify-between text-left p-3 m-1 rounded-lg text-white">
         <h2 className="text-xl font-semibold mt-2">{name}</h2>
         <h3 className=" text-sm font-medium">Price: ${price}</h3>
-        <h6 className="text-xs">{`${description}`}</h6>
+        <h6 className="text-xs">Details: {`${description}`}</h6>
         <h3 className=" text-sm font-medium">
           Minimum Order: {minOrderQuantity} Pieces
         </h3>
@@ -23,8 +23,11 @@ const ManageTool = ({ tool, setDeleteTool }) => {
         <div>
           <label
             htmlFor="delete-confirm-modal"
-            onClick={() => setDeleteTool(tool)}
-            className="btn btn-error w-full text-white h-10 mt-2"
+            onClick={() => {
+              setDeleteTool(tool);
+              window.scrollTo(0, 0);
+            }}
+            className="btn btn-error w-full text-white  mt-2"
           >
             Delete Item
           </label>
