@@ -21,7 +21,7 @@ import AddATool from "./Pages/Dashboard/ForAdmins/AddATool";
 import ManageTools from "./Pages/Dashboard/ForAdmins/ManageTools";
 import ManageAllOrders from "./Pages/Dashboard/ForAdmins/ManageAllOrders";
 import Payment from "./Pages/Dashboard/ForUsers/Payment";
-import MyProfile from "./Pages/Dashboard/MyProfile";
+import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import ReviewsComp from "./Pages/Reviews/ReviewsComp";
 function App() {
   return (

@@ -7,7 +7,12 @@ import ToolDetails from "./ToolDetails";
 const Purchase = () => {
   const { toolId } = useParams();
   const url = `https://jack-hammer-corporation-server.herokuapp.com/purchase/${toolId}`;
-  const { data: tool, refetch } = useReactQuery(url);
+  const header = {
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  };
+  const { data: tool, refetch } = useReactQuery(url, header);
 
   return (
     <div className="glass bg-secondary hover:bg-secondary text-white pb-3">

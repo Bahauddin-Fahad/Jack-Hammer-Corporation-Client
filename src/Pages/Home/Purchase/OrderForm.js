@@ -78,6 +78,7 @@ const OrderForm = ({ tool, refetch }) => {
           const url = `https://jack-hammer-corporation-server.herokuapp.com/tool/${_id}`;
           axios.put(url, newAvailableQuantity).then((res) => {
             console.log(res);
+            refetch();
           });
         } else {
           toast.error(
@@ -87,7 +88,6 @@ const OrderForm = ({ tool, refetch }) => {
             }
           );
         }
-        // refetch();
       });
     }
   };

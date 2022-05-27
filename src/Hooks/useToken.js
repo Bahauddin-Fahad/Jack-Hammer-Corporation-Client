@@ -10,6 +10,7 @@ const useToken = (user) => {
     const currentUser = {
       email: email,
       name: name,
+      img: "",
       phone: "",
       address: "",
       linkedIn: "",
