@@ -1,18 +1,10 @@
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../../firebase.init";
-import useReactQuery from "../../../Hooks/useReactQuery";
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import auth from "../../../firebase.init";
+// import useReactQuery from "../../../Hooks/useReactQuery";
+// import UpdateProfile from "./UpdateProfile";
 
-const ViewProfile = () => {
-  const [user] = useAuthState(auth);
-  const email = user.email;
-  const url = `http://localhost:5000/user/${email}`;
-  const header = {
-    headers: {
-      authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  };
-  const { data: profile } = useReactQuery(url, header);
+const ViewProfile = ({ profile }) => {
   return (
     <div className="flex justify-center">
       <div className="card border-2 w-full max-w-lg shadow-2xl ">

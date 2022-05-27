@@ -19,7 +19,7 @@ const ManageAllOrders = () => {
   const handelShift = (id) => {
     axios
       .patch(
-        `https://jack-hammer-corporation-server.herokuapp.com/shift/order/${id}`,
+        `https://jack-hammer-corporation-server.herokuapp.com/order/shift/${id}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -37,7 +37,7 @@ const ManageAllOrders = () => {
 
   const cancelOrder = (id) => {
     fetch(
-      `https://jack-hammer-corporation-server.herokuapp.com/cancel/order/${id}`,
+      `https://jack-hammer-corporation-server.herokuapp.com/order/cancel/${id}`,
       {
         method: "DELETE",
         headers: {

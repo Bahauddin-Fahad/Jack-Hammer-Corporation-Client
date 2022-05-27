@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ refetch }) => {
   const [user] = useAuthState(auth);
 
   const { register, handleSubmit, reset } = useForm();
@@ -25,8 +25,9 @@ const UpdateProfile = () => {
 
     await axios.put(url, profile).then((data) => {
       if (data) {
-        toast.success("Information Updated", { theme: "colored" });
+        toast.success("Your Profile is Updated", { theme: "colored" });
         reset();
+        refetch();
       }
     });
   };
