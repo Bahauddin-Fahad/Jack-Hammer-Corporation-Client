@@ -6,8 +6,15 @@ import useReactQuery from "../../../Hooks/useReactQuery";
 
 const AddAReview = () => {
   const [user] = useAuthState(auth);
+  const userUrl = `https://jack-hammer-corporation-server.herokuapp.com/user/${user?.email}`;
+  const header = {
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  };
+  const { data: userData } = useReactQuery(userUrl, header);
 
-  const url = `http://localhost:5000/review/${user?.email}`;
+  const url = `https://jack-hammer-corporation-server.herokuapp.com/review/${user?.email}`;
   const { data: userReview, refetch } = useReactQuery(url);
 
   const showRating = () => {
@@ -22,22 +29,24 @@ const AddAReview = () => {
   const reviewing = async (e) => {
     e.preventDefault();
 
+    const name = user?.displayName;
     const email = user?.email;
+    const img = userData?.img;
     const comment = e.target.comment.value;
     const activeRating = [...e.target.rating].reverse();
 
     const rating =
       parseInt(activeRating.find((rating) => rating.checked)?.value) || 5;
 
-    const review = { email, comment, rating };
-    const url = `http://localhost:5000/review/${email}`;
+    const review = { name, email, img, comment, rating };
+    const url = `https://jack-hammer-corporation-server.herokuapp.com/review/${email}`;
 
     await axios.put(url, review).then((data) => {
       if (data?.data?.success) {
         toast.success("Review submitted successfully", { theme: "colored" });
       }
       if (data?.data?.update) {
-        toast.success("Review updated successfully", { theme: "dark" });
+        toast.success("Review updated successfully", { theme: "colored" });
       }
     });
     refetch();
@@ -52,6 +61,15 @@ const AddAReview = () => {
         className="form-control ring-2 ring-primary rounded-md px-7 py-2 space-y-2 max-w-sm bg-secondary glass"
       >
         <h2 className=" font-medium text-2xl text-center mb-2">Add a Review</h2>
+        <label className="input-group max-w-sm w-full">
+          <span className="font-medium text-neutral-focus">Name:</span>
+          <input
+            type="text"
+            placeholder={user?.displayName}
+            className="input input-bordered placeholder:text-neutral-focus font-medium text-lg w-auto min-w-0"
+            readOnly
+          />
+        </label>
         <label className="input-group max-w-sm w-full">
           <span className="font-medium text-neutral-focus">Email:</span>
           <input

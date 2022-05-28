@@ -22,7 +22,7 @@ const AddATool = () => {
       availableQuantity: availableQuantity,
     };
 
-    const url = "http://localhost:5000/tool";
+    const url = "https://jack-hammer-corporation-server.herokuapp.com/tool";
     axios
       .post(url, tool, {
         headers: {

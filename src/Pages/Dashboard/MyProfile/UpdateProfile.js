@@ -14,13 +14,14 @@ const UpdateProfile = ({ refetch }) => {
     const name = user?.displayName;
     const email = user?.email;
     const phone = data.phone;
-    const img =
-      data.img || "https://i.ibb.co/pvmWXsv/male-placeholder-image.jpg";
+    const img = data.img
+      ? data.img
+      : "https://i.ibb.co/pvmWXsv/male-placeholder-image.jpg";
     const address = data.address;
     const linkedIn = data.linkedIn;
     const profile = { name, email, phone, img, address, linkedIn };
 
-    const url = `http://localhost:5000/user/${email}`;
+    const url = `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`;
 
     await axios.put(url, profile).then((data) => {
       if (data) {
@@ -31,9 +32,9 @@ const UpdateProfile = ({ refetch }) => {
     });
   };
   return (
-    <div className="flex justify-center">
+    <div className="max-w-sm w-full ">
       <form
-        className="form card w-full max-w-lg shadow-2xl glass pb-5"
+        className="form card min-h-0 h-full w-full max-w-lg shadow-2xl glass pb-5"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="mx-6 shadow-xl">

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const DeleteToolModel = ({ deleteTool, setDeleteTool, refetch }) => {
   const { _id, name } = deleteTool;
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/tool/${id}`;
+    const url = `https://jack-hammer-corporation-server.herokuapp.com/tool/${id}`;
     const header = {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -22,15 +22,11 @@ const DeleteToolModel = ({ deleteTool, setDeleteTool, refetch }) => {
   };
   return (
     <div>
-      <input
-        type="checkbox"
-        id="delete-confirm-modal"
-        className="modal-toggle"
-      />
+      <input type="checkbox" id="delete-tool-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box">
           <label
-            htmlFor="delete-confirm-modal"
+            htmlFor="delete-tool-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
@@ -44,7 +40,7 @@ const DeleteToolModel = ({ deleteTool, setDeleteTool, refetch }) => {
             >
               Confirm
             </button>
-            <label htmlFor="delete-confirm-modal" className="btn btn-sm">
+            <label htmlFor="delete-tool-modal" className="btn btn-sm">
               Cancel
             </label>
           </div>

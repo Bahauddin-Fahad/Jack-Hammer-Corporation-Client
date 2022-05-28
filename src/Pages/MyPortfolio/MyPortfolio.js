@@ -12,7 +12,7 @@ const MyPortfolio = () => {
             <label className="input-group max-w-sm w-full">
               <span className="font-medium text-neutral-focus">Name:</span>
               <input
-                class="input input-bordered input-sm xs:max-w-xs lg:max-w-lg w-full"
+                className="input input-bordered input-sm xs:max-w-xs lg:max-w-lg w-full"
                 value="S.M. Bahauddin Fahad"
                 readOnly
               />
@@ -34,8 +34,8 @@ const MyPortfolio = () => {
             <h3 className="underline underline-offset-2">
               Education Background :
             </h3>
-            <div class="overflow-x-auto border-[4px] rounded-xl text-neutral-focus">
-              <table class="table table-compact w-full">
+            <div className="overflow-x-auto border-[4px] rounded-xl text-neutral-focus">
+              <table className="table table-compact w-full">
                 <thead className="text-center">
                   <tr>
                     <th>Passing Year</th>
@@ -68,7 +68,7 @@ const MyPortfolio = () => {
           <div className="">
             <input
               type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
+              className="checkbox ring-2 ring-white checkbox-xs"
               checked
               readOnly
             />
@@ -77,7 +77,7 @@ const MyPortfolio = () => {
           <div className="">
             <input
               type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
+              className="checkbox ring-2 ring-white checkbox-xs"
               checked
               readOnly
             />
@@ -86,7 +86,7 @@ const MyPortfolio = () => {
           <div className="">
             <input
               type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
+              className="checkbox ring-2 ring-white checkbox-xs"
               checked
               readOnly
             />
@@ -95,7 +95,7 @@ const MyPortfolio = () => {
           <div className="">
             <input
               type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
+              className="checkbox ring-2 ring-white checkbox-xs"
               checked
               readOnly
             />
@@ -104,7 +104,7 @@ const MyPortfolio = () => {
           <div className="">
             <input
               type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
+              className="checkbox ring-2 ring-white checkbox-xs"
               checked
               readOnly
             />
@@ -113,7 +113,7 @@ const MyPortfolio = () => {
           <div className="">
             <input
               type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
+              className="checkbox ring-2 ring-white checkbox-xs"
               checked
               readOnly
             />
@@ -123,7 +123,7 @@ const MyPortfolio = () => {
           <div className="">
             <input
               type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
+              className="checkbox ring-2 ring-white checkbox-xs"
               checked
               readOnly
             />
@@ -132,7 +132,7 @@ const MyPortfolio = () => {
           <div className="">
             <input
               type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
+              className="checkbox ring-2 ring-white checkbox-xs"
               checked
               readOnly
             />
@@ -150,7 +150,7 @@ const MyPortfolio = () => {
                 href="https://bahauddin-fahad.github.io/influencer-gears"
                 target="_blank"
                 rel="noreferrer"
-                class="btn btn-sm glass"
+                className="btn btn-sm glass"
               >
                 First Project
               </a>
@@ -158,7 +158,7 @@ const MyPortfolio = () => {
                 href="https://convention-center-bahauddin-fahad.netlify.app"
                 target="_blank"
                 rel="noreferrer"
-                class="btn btn-sm glass"
+                className="btn btn-sm glass"
               >
                 Second Project
               </a>
@@ -166,7 +166,7 @@ const MyPortfolio = () => {
                 href="https://create-eve-art.web.app"
                 target="_blank"
                 rel="noreferrer"
-                class="btn btn-sm glass"
+                className="btn btn-sm glass"
               >
                 Third Project
               </a>

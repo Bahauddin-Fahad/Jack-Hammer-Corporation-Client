@@ -6,7 +6,7 @@ import ManageTool from "./ManageTool";
 
 const ManageTools = () => {
   const [deleteTool, setDeleteTool] = useState(null);
-  const url = "http://localhost:5000/tools";
+  const url = "https://jack-hammer-corporation-server.herokuapp.com/tools";
   const { data: tools, refetch } = useReactQuery(url);
   return (
     <div className="">

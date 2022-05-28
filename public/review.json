@@ -1,0 +1,50 @@
+[
+  {
+    "id": 500335,
+    "img": "https://i.ibb.co/T0hBhys/austin-wade.jpg",
+    "name": "Austin Wade",
+    "email": "austin.wade@gmail.com",
+    "rating": "5",
+    "comment": "Satified with the products.Didnt expect the delivery will be so fast.happy customer"
+  },
+  {
+    "id": 975911,
+    "img": "https://i.ibb.co/BZwNfdC/erwi-jason.jpg",
+    "name": "Erwy Jason",
+    "email": "erwy.jason@gmail.com",
+    "rating": "4",
+    "comment": "They are good company.Takes care of the customer.Happy."
+  },
+  {
+    "id": 793570,
+    "img": "https://i.ibb.co/HXHXkr3/stephanie-liverani.jpg",
+    "name": "Stephanie Liverani",
+    "email": "stephanie.liverani@gmail.com",
+    "rating": "4",
+    "comment": "I have bought many tool from different sites,but the tool of this company is exeptional."
+  },
+  {
+    "id": 395142,
+    "img": "https://i.ibb.co/rZsj3Vt/vince-fleming.jpg",
+    "name": "Vince Fleming",
+    "email": "vince.fleming@gmail.com",
+    "rating": "4",
+    "comment": "Jack Hammer Corporation is the best tool manufacturer I have ever seen"
+  },
+  {
+    "id": 857529,
+    "img": "https://i.ibb.co/sJ4d7dm/christopher-campbell.jpg",
+    "name": "Christopher Campbell",
+    "email": "christopher.campbell@gmail.com",
+    "rating": "4",
+    "comment": "Tool are long lasting and useful.Happy to be a part of the company"
+  },
+  {
+    "id": 626279,
+    "img": "https://i.ibb.co/qgwkHL3/nicolas-horn.jpg",
+    "name": "Nicolas Horn",
+    "email": "nicolas.horn@gmail.com",
+    "rating": "5",
+    "comment": "Got the tools within one week.Very Good Service.Satisfied."
+  }
+]

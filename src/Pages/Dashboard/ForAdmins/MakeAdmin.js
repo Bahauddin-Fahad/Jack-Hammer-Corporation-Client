@@ -5,7 +5,7 @@ import DeleteUserModal from "./DeleteUserModal";
 import UserList from "./UserList";
 const MakeAdmin = () => {
   const [deleteUser, setDeleteUser] = useState(null);
-  const url = "http://localhost:5000/users";
+  const url = "https://jack-hammer-corporation-server.herokuapp.com/users";
   const header = {
     headers: {
       authorization: `Bearer ${localStorage.getItem("accessToken")}`,

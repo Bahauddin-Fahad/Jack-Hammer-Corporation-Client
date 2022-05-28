@@ -65,7 +65,8 @@ const OrderForm = ({ tool, refetch }) => {
         shift: false,
       };
       setError("");
-      const orderUrl = "http://localhost:5000/order";
+      const orderUrl =
+        "https://jack-hammer-corporation-server.herokuapp.com/order";
       const header = {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -83,7 +84,7 @@ const OrderForm = ({ tool, refetch }) => {
           reset();
           const remaniningQuantity = availableQuantity - quantity;
           const newAvailableQuantity = { remaniningQuantity };
-          const url = `http://localhost:5000/tool/${_id}`;
+          const url = `https://jack-hammer-corporation-server.herokuapp.com/tool/${_id}`;
           axios.put(url, newAvailableQuantity, header).then((res) => {
             refetch();
           });

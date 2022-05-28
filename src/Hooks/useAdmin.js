@@ -6,7 +6,7 @@ const useAdmin = (user) => {
   const [adminLoading, setAdminLoading] = useState(true);
   useEffect(() => {
     const email = user?.email;
-    const url = `http://localhost:5000/admin/${email}`;
+    const url = `https://jack-hammer-corporation-server.herokuapp.com/admin/${email}`;
     const header = {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

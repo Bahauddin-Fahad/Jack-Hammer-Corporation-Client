@@ -1,15 +1,21 @@
 import React from "react";
 
 const ViewProfile = ({ profile }) => {
+  const img =
+    profile?.img || "https://i.ibb.co/pvmWXsv/male-placeholder-image.jpg";
   return (
-    <div className="flex justify-center">
-      <div className="card border-2 w-full max-w-lg shadow-2xl ">
+    <div className="max-w-sm w-full">
+      <div className="card min-h-0 h-full border-2 w-full max-w-lg shadow-2xl ">
         <h2 className="text-2xl font-bold  underline text-white mt-8">
           My Profile
         </h2>
         <div className="flex justify-center mt-8">
           <div className="flex justify-center items-center w-36 h-36 bg-secondary rounded-full ring-white ring-2 shadow-xl">
-            <img className="rounded-full w-32 h-32" src={profile?.img} alt="" />
+            <img
+              className="rounded-full w-32 h-32 object-cover"
+              src={img}
+              alt=""
+            />
           </div>
         </div>
         <div className="card-body">

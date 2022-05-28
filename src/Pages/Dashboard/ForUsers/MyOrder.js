@@ -36,7 +36,7 @@ const MyOrder = ({ order, index, setOrder }) => {
         )}
         {order.totalPrice && order.paid && (
           <div>
-            <div className="text-center text-white w-1/3 font-semibold bg-accent rounded-md">
+            <div className="text-center text-white  font-semibold bg-success rounded-md">
               PAID
             </div>
           </div>

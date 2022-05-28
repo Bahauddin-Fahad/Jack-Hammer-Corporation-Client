@@ -1,6 +1,6 @@
 # Sound Hub
 
-## Live Website Link : https://jack-hammer-corporation.firebaseapp.com/
+## Live Website Link : https://jack-hammer-corporation.firebaseapp.com
 
 ## **In this Assignment,I Have Used:**
 
@@ -15,14 +15,23 @@
 ### Home
 
 - Banner Of the Website.
+- About Us.
 - Tools.
-- Reviews.
+- Choose Us.
 - Business Summery.
-- 2 Extra Sections.
+- Reviews.
 
 ### Dashboard
 
 - Admin And User Section.
+
+### Reviews
+
+- All The Reviews Of the Customer.
+
+### My Portfolio
+
+- The Details of Myself.
 
 ### Blogs
 

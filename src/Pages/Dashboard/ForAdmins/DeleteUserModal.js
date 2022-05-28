@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const DeleteUserModal = ({ deleteUser, setDeleteUser, refetch }) => {
   const { email, name } = deleteUser;
   const removeUser = (email) => {
-    const url = `http://localhost:5000/user/${email}`;
+    const url = `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`;
     const header = {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

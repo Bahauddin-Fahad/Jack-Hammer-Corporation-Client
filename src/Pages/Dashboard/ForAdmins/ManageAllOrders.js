@@ -8,7 +8,7 @@ import axios from "axios";
 
 const ManageAllOrders = () => {
   const [order, setOrder] = useState(null);
-  const url = "http://localhost:5000/get/orders";
+  const url = "https://jack-hammer-corporation-server.herokuapp.com/get/orders";
   const header = {
     headers: {
       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -18,27 +18,34 @@ const ManageAllOrders = () => {
   const { data: orders, refetch } = useReactQuery(url, header);
   const handelShift = (id) => {
     axios
-      .patch(`http://localhost:5000/order/shift/${id}`, {}, header)
+      .patch(
+        `https://jack-hammer-corporation-server.herokuapp.com/order/shift/${id}`,
+        {},
+        header
+      )
       .then((data) => {
         console.log(data.data);
         if (data.data.modifiedCount > 0) {
-          toast.success("Product Successfully Shifted", { theme: "colored" });
+          toast.success("Order Is Shifted Successfully", { theme: "colored" });
           refetch();
         }
       });
   };
 
   const cancelOrder = (id) => {
-    fetch(`http://localhost:5000/order/cancel/${id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://jack-hammer-corporation-server.herokuapp.com/order/cancel/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          toast.success("Successfully cancel the order");
+          toast.success("You Have Cancelled the Order", { theme: "colored" });
           refetch();
         }
       });

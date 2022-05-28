@@ -22,7 +22,7 @@ const ManageTool = ({ tool, setDeleteTool }) => {
 
         <div>
           <label
-            htmlFor="delete-confirm-modal"
+            htmlFor="delete-tool-modal"
             onClick={() => {
               setDeleteTool(tool);
             }}

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
@@ -29,9 +30,21 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
     const email = data.email;
+    const name = data.name;
     const password = data.password;
     await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: data.name });
+    await updateProfile({ displayName: name });
+    await axios.put(
+      `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`,
+      {
+        email: email,
+        name: name,
+        img: "https://i.ibb.co/pvmWXsv/male-placeholder-image.jpg",
+        phone: "",
+        address: "",
+        linkedIn: "",
+      }
+    );
   };
 
   const [token] = useToken(user);

@@ -6,7 +6,7 @@ import { HiTrendingUp, HiOutlinePencilAlt } from "react-icons/hi";
 const BusinessSummery = () => {
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-3">Business Summery</h2>
+      <h2 className="text-4xl font-bold mb-3">Business Summery</h2>
       <div className="w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 lg:gap-x-1 rounded-xl shadow text-white">
         <div className="stat flex flex-col bg-secondary rounded-xl md:rounded-r-none lg:rounded-l-xl lg:rounded-none ">
           <div className="stat-figure text-primary">

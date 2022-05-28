@@ -10,7 +10,7 @@ const UserList = ({ user, setDeleteUser, index, refetch }) => {
     },
   };
   const makeAdmin = () => {
-    const url = `http://localhost:5000/user/${email}`;
+    const url = `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`;
     axios
       .patch(url, {}, header)
       .then((data) => {

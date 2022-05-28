@@ -44,20 +44,23 @@ const Navbar = () => {
           Blogs
         </Link>
       </li>
-      <li>
-        {user ? (
-          <div className="flex flex-col">
-            <p className="font-semibold text-primary">{user.displayName}</p>
+
+      <div className="flex flex-col items-center">
+        {user && (
+          <p className="font-semibold text-primary">{user.displayName}</p>
+        )}
+        <li>
+          {user ? (
             <button className="font-semibold text-primary" onClick={logout}>
               Sign Out
             </button>
-          </div>
-        ) : (
-          <Link className="font-semibold text-primary" to="/login">
-            Login
-          </Link>
-        )}
-      </li>
+          ) : (
+            <Link className="font-semibold text-primary" to="/login">
+              Login
+            </Link>
+          )}
+        </li>
+      </div>
     </>
   );
   return (
