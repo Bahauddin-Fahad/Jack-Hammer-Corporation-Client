@@ -1,4 +1,4 @@
-# Sound Hub
+# Jack Hammer Corporation
 
 ## Live Website Link : https://jack-hammer-corporation.firebaseapp.com
 
