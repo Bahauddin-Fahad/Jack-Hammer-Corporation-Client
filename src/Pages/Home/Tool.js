@@ -21,7 +21,7 @@ const Tool = ({ tool }) => {
       </div>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
-        <p className="text-sm">{description}</p>
+        <p className="text-sm text-left">{description}</p>
         <p className="text-left text-lg ">
           Minimum Order :
           <span className="text-primary font-semibold">
