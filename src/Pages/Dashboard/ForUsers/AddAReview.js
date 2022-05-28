@@ -7,7 +7,7 @@ import useReactQuery from "../../../Hooks/useReactQuery";
 const AddAReview = () => {
   const [user] = useAuthState(auth);
 
-  const url = `https://jack-hammer-corporation-server.herokuapp.com/review/${user?.email}`;
+  const url = `http://localhost:5000/review/${user?.email}`;
   const { data: userReview, refetch } = useReactQuery(url);
 
   const showRating = () => {
@@ -30,20 +30,16 @@ const AddAReview = () => {
       parseInt(activeRating.find((rating) => rating.checked)?.value) || 5;
 
     const review = { email, comment, rating };
+    const url = `http://localhost:5000/review/${email}`;
 
-    await axios
-      .put(
-        `https://jack-hammer-corporation-server.herokuapp.com/review/${email}`,
-        review
-      )
-      .then((data) => {
-        if (data?.data?.success) {
-          toast.success("Review submitted successfully", { theme: "colored" });
-        }
-        if (data?.data?.update) {
-          toast.success("Review updated successfully", { theme: "dark" });
-        }
-      });
+    await axios.put(url, review).then((data) => {
+      if (data?.data?.success) {
+        toast.success("Review submitted successfully", { theme: "colored" });
+      }
+      if (data?.data?.update) {
+        toast.success("Review updated successfully", { theme: "dark" });
+      }
+    });
     refetch();
     showRating();
     e.target.comment.value = "";

@@ -4,7 +4,6 @@ import Review from "./Review";
 const Reviews = () => {
   const url = "http://localhost:5000/reviews";
   const { data: reviews } = useReactQuery(url);
-  // console.log(reviews);
   return (
     <div className="mt-10">
       <h2 className="text-center font-bold text-3xl mt-3">All Reviews</h2>

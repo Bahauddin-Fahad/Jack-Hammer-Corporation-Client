@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   return (
-    <div className="drawer drawer-mobile bg-secondary hover:bg-secondary glass fadeIn">
+    <div className="drawer drawer-mobile bg-secondary hover:bg-secondary glass fadeIn min-h-screen">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content mt-2">
         <h2 className="text-right mr-3 font-bold text-primary text-xs">

@@ -12,7 +12,6 @@ const ManageAllOrder = ({ order, index, handelShift, setOrder }) => {
     shift,
     paid,
   } = order;
-  console.log(paid, status, shift);
   return (
     <tr>
       <th>{index + 1}</th>
@@ -22,11 +21,13 @@ const ManageAllOrder = ({ order, index, handelShift, setOrder }) => {
       <td>{totalPrice}</td>
       <td>
         {" "}
-        {!status && "Not Paid"}
-        {shift && "Shifted"}
-        {status && !shift && "Pending"}
+        {!status && <p className="font-bold text-error">Not Paid</p>}
+        {status && !shift && (
+          <p className="font-bold text-secondary">Pending</p>
+        )}
+        {shift && <p className="font-bold text-success">Shifted</p>}
       </td>
-      <td>{transactionId ? transactionId : ""}</td>
+
       <td>
         <button
           className="btn btn-xs btn-success mr-2"
@@ -43,6 +44,11 @@ const ManageAllOrder = ({ order, index, handelShift, setOrder }) => {
         >
           Cancel
         </label>
+      </td>
+      <td>
+        <p className="text-success font-semibold">
+          {transactionId ? transactionId : ""}
+        </p>
       </td>
     </tr>
   );

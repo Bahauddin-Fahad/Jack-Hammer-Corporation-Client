@@ -14,7 +14,7 @@ const MyOrders = () => {
   const [order, setOrder] = useState(null);
   useEffect(() => {
     if (user) {
-      const url = `https://jack-hammer-corporation-server.herokuapp.com/orders?email=${user.email}`;
+      const url = `http://localhost:5000/orders?email=${user.email}`;
       axios
         .get(url, {
           headers: {
@@ -34,15 +34,12 @@ const MyOrders = () => {
     }
   }, [user, navigate]);
   const cancelOrder = (id) => {
-    fetch(
-      `https://jack-hammer-corporation-server.herokuapp.com/order/cancel/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/order/cancel/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -70,6 +67,7 @@ const MyOrders = () => {
               </th>
               <th>Status</th>
               <th>Payment</th>
+              <th>Transa1ction ID</th>
             </tr>
           </thead>
           <tbody>

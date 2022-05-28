@@ -6,7 +6,7 @@ import ToolDetails from "./ToolDetails";
 
 const Purchase = () => {
   const { toolId } = useParams();
-  const url = `https://jack-hammer-corporation-server.herokuapp.com/purchase/${toolId}`;
+  const url = `http://localhost:5000/purchase/${toolId}`;
   const header = {
     headers: {
       authorization: `Bearer ${localStorage.getItem("accessToken")}`,

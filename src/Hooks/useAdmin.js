@@ -6,20 +6,17 @@ const useAdmin = (user) => {
   const [adminLoading, setAdminLoading] = useState(true);
   useEffect(() => {
     const email = user?.email;
+    const url = `http://localhost:5000/admin/${email}`;
+    const header = {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    };
     if (email) {
-      axios
-        .get(
-          `https://jack-hammer-corporation-server.herokuapp.com/admin/${email}`,
-          {
-            headers: {
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-          }
-        )
-        .then((data) => {
-          setAdmin(data.data.admin);
-          setAdminLoading(false);
-        });
+      axios.get(url, header).then((data) => {
+        setAdmin(data.data.admin);
+        setAdminLoading(false);
+      });
     }
   }, [user]);
   return [admin, adminLoading];

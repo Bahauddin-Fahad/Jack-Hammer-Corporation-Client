@@ -1,6 +1,4 @@
 import React from "react";
-// import { useParams } from "react-router-dom";
-// import useReactQuery from "../../../Hooks/useReactQuery";
 
 const ToolDetails = ({ tool }) => {
   return (

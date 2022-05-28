@@ -10,9 +10,11 @@ const MyOrder = ({ order, index, setOrder }) => {
       <td>{order?.quantity} Pieces</td>
       <td>${order?.totalPrice}</td>
       <td>
-        {!order?.paid && <p className="font-semibold text-error">Not Paid</p>}
-        {order?.status && !order?.shift && "Pending"}
-        {order?.shift && "Shifted"}
+        {!order?.paid && <p className="font-bold text-error">Not Paid</p>}
+        {order?.status && !order?.shift && (
+          <p className="font-bold text-secondary">Pending</p>
+        )}
+        {order?.shift && <p className="font-bold text-success">Shifted</p>}
       </td>
       <td>
         {order?.totalPrice && !order?.paid && (
@@ -34,15 +36,16 @@ const MyOrder = ({ order, index, setOrder }) => {
         )}
         {order.totalPrice && order.paid && (
           <div>
-            <div className="text-center text-white w-1/3 font-semibold bg-accent rounded-md mx-auto">
+            <div className="text-center text-white w-1/3 font-semibold bg-accent rounded-md">
               PAID
             </div>
-            <p className="font-semibold">
-              Transaction:{" "}
-              <span className="text-success ">{order.transactionId}</span>
-            </p>
           </div>
         )}
+      </td>
+      <td>
+        <p className="font-semibold text-success ">
+          {order.transactionId ? order.transactionId : ""}
+        </p>
       </td>
     </tr>
   );

@@ -1,32 +1,34 @@
+import axios from "axios";
 import React from "react";
 import { toast } from "react-toastify";
 
-const UserList = ({ user, index, refetch }) => {
+const UserList = ({ user, setDeleteUser, index, refetch }) => {
   const { email, role } = user;
-
+  const header = {
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  };
   const makeAdmin = () => {
-    const url = `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`;
-    fetch(url, {
-      method: "PATCH",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => {
-        if (res.status === 403) {
-          toast.error("Failed to make an Admin", { theme: "colored" });
-        }
-        return res.json();
-      })
+    const url = `http://localhost:5000/user/${email}`;
+    axios
+      .patch(url, {}, header)
       .then((data) => {
-        if (data.modifiedCount > 0) {
+        console.log(data);
+        if (data.data.modifiedCount > 0) {
           refetch();
           toast.success(`${email} is added as an Admin Successfully`, {
             theme: "colored",
           });
         }
+      })
+      .catch((error) => {
+        if (error.response.status === 403) {
+          toast.error("Failed to make an Admin", { theme: "colored" });
+        }
       });
   };
+
   return (
     <tr>
       <th>{index + 1}</th>
@@ -39,7 +41,22 @@ const UserList = ({ user, index, refetch }) => {
         )}
       </td>
       <td>
-        <button className="btn btn-error btn-xs text-white">Remove User</button>
+        <div>
+          <label
+            htmlFor="delete-user-modal"
+            onClick={() => {
+              setDeleteUser(user);
+            }}
+            className="btn btn-error btn-xs text-white  mt-2"
+          >
+            Remove User
+          </label>
+        </div>
+        {/* <button
+          htmlFor="delete-confirm-modal"
+          onClick={removeUser}
+          className="btn btn-error btn-xs text-white"
+        ></button> */}
       </td>
     </tr>
   );

@@ -24,10 +24,13 @@ const CancelOrderAdmin = ({ cancelOrder, order }) => {
             <div className="modal-action">
               <label
                 htmlFor="cancel-order-admin-modal"
-                className="btn btn-error"
+                className="btn btn-sm btn-outline btn-error"
                 onClick={() => cancelOrder(order._id)}
               >
                 Confirm
+              </label>
+              <label htmlFor="cancel-order-admin-modal" className="btn btn-sm">
+                Cancel
               </label>
             </div>
           </div>

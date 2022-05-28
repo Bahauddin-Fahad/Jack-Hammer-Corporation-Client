@@ -50,7 +50,6 @@ const Login = () => {
 
   // Login Form Submit Function
   const onSubmit = (data) => {
-    // console.log(data);
     const email = data.email;
     const password = data.password;
     signInWithEmailAndPassword(email, password);
@@ -59,7 +58,6 @@ const Login = () => {
   // Password Reset Function
   const resetPassword = async () => {
     const email = emailRef.current.value;
-    // console.log(email);
     if (email) {
       await sendPasswordResetEmail(email);
       toast.success(`Email has been sent to ${email}`, { theme: "colored" });

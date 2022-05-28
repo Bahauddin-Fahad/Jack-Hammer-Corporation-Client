@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Tool from "./Tool";
 import useReactQuery from "../../Hooks/useReactQuery";
 import { Link } from "react-router-dom";
 
 const Tools = () => {
-  const url = "https://jack-hammer-corporation-server.herokuapp.com/tools";
+  const url = "http://localhost:5000/tools";
   const { data: tools, refetch } = useReactQuery(url);
-  useEffect(() => {
-    // refetch();
-  });
+
   return (
     <div className="m-10">
       <h2 className="font-bold text-3xl text-center">Tools</h2>

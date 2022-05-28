@@ -25,7 +25,6 @@ const ManageTool = ({ tool, setDeleteTool }) => {
             htmlFor="delete-confirm-modal"
             onClick={() => {
               setDeleteTool(tool);
-              window.scrollTo(0, 0);
             }}
             className="btn btn-error w-full text-white  mt-2"
           >

@@ -1,20 +1,13 @@
-// import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { toast } from "react-toastify";
 import useReactQuery from "../../../Hooks/useReactQuery";
-import DeleteConfirmModel from "./DeleteConfirmModal";
+import DeleteToolModel from "./DeleteToolModal";
 import ManageTool from "./ManageTool";
 
 const ManageTools = () => {
   const [deleteTool, setDeleteTool] = useState(null);
-  const url = "https://jack-hammer-corporation-server.herokuapp.com/tools";
-  const header = {
-    headers: {
-      authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  };
-  const { data: tools, refetch } = useReactQuery(url, header);
+  const url = "http://localhost:5000/tools";
+  const { data: tools, refetch } = useReactQuery(url);
   return (
     <div className="">
       <h2 className="text-left ml-3 text-lg text-primary font-bold">
@@ -40,7 +33,7 @@ const ManageTools = () => {
           </Link>
         </div>
         {deleteTool && (
-          <DeleteConfirmModel
+          <DeleteToolModel
             deleteTool={deleteTool}
             setDeleteTool={setDeleteTool}
             refetch={refetch}

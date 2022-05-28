@@ -19,8 +19,7 @@ const CheckoutForm = ({ order }) => {
   const toolName = order?.toolName;
 
   useEffect(() => {
-    const url =
-      "https://jack-hammer-corporation-server.herokuapp.com/create-payment-intent";
+    const url = "http://localhost:5000/create-payment-intent";
     axios
       .post(
         url,
@@ -84,15 +83,11 @@ const CheckoutForm = ({ order }) => {
         transactionId: paymentIntent.id,
       };
       axios
-        .patch(
-          `https://jack-hammer-corporation-server.herokuapp.com/order/${_id}`,
-          payment,
-          {
-            headers: {
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-          }
-        )
+        .patch(`http://localhost:5000/order/${_id}`, payment, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
         .then((data) => {
           setProcessing(false);
           console.log(data.data);

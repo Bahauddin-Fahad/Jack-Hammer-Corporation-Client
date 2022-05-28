@@ -13,7 +13,7 @@ const stripePromise = loadStripe(
 );
 const Payment = () => {
   const { orderId } = useParams();
-  const url = `https://jack-hammer-corporation-server.herokuapp.com/order/${orderId}`;
+  const url = `http://localhost:5000/order/${orderId}`;
 
   const { data: order, isLoading } = useQuery(["order", orderId], () =>
     axios

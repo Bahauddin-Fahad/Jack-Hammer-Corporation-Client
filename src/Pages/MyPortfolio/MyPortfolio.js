@@ -72,7 +72,7 @@ const MyPortfolio = () => {
               checked
               readOnly
             />
-            <h5>HTML and CSS with Responsive design</h5>
+            <h5>HTML and CSS with Responsive Design</h5>
           </div>
           <div className="">
             <input
@@ -81,7 +81,7 @@ const MyPortfolio = () => {
               checked
               readOnly
             />
-            <h5>CSS Framework : Tailwind, Bootstrap & MUI</h5>
+            <h5>CSS Framework : Tailwind & Bootstrap</h5>
           </div>
           <div className="">
             <input
@@ -99,15 +99,6 @@ const MyPortfolio = () => {
               checked
               readOnly
             />
-            <h5>API implementation</h5>
-          </div>
-          <div className="">
-            <input
-              type="checkbox"
-              class="checkbox ring-2 ring-white checkbox-xs"
-              checked
-              readOnly
-            />
             <h5>Front-end JS Framework : React JS</h5>
           </div>
           <div className="">
@@ -117,8 +108,18 @@ const MyPortfolio = () => {
               checked
               readOnly
             />
-            <h5>Authentication system stablish with Firebase</h5>
+            <h5>Firebase Authentication</h5>
           </div>
+          <div className="">
+            <input
+              type="checkbox"
+              class="checkbox ring-2 ring-white checkbox-xs"
+              checked
+              readOnly
+            />
+            <h5>API implementation</h5>
+          </div>
+
           <div className="">
             <input
               type="checkbox"

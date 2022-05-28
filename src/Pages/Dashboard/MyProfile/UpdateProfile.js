@@ -15,13 +15,12 @@ const UpdateProfile = ({ refetch }) => {
     const email = user?.email;
     const phone = data.phone;
     const img =
-      data.img ||
-      "https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image-300x300.jpeg";
+      data.img || "https://i.ibb.co/pvmWXsv/male-placeholder-image.jpg";
     const address = data.address;
     const linkedIn = data.linkedIn;
     const profile = { name, email, phone, img, address, linkedIn };
 
-    const url = `https://jack-hammer-corporation-server.herokuapp.com/user/${email}`;
+    const url = `http://localhost:5000/user/${email}`;
 
     await axios.put(url, profile).then((data) => {
       if (data) {

@@ -17,7 +17,7 @@ const MyProfile = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mx-10">
       <ViewProfile key={profile?._id} profile={profile} />
-      <UpdateProfile refetch={refetch} />
+      <UpdateProfile refetch={refetch} user={user} />
     </div>
   );
 };

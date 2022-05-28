@@ -21,9 +21,8 @@ const AddATool = () => {
       minOrderQuantity: minOrderQuantity,
       availableQuantity: availableQuantity,
     };
-    console.log(tool);
 
-    const url = "https://jack-hammer-corporation-server.herokuapp.com/tool";
+    const url = "http://localhost:5000/tool";
     axios
       .post(url, tool, {
         headers: {
@@ -39,7 +38,6 @@ const AddATool = () => {
         } else {
           toast.error("Failed to Add Tool", { theme: "colored" });
         }
-        // console.log(inserted.data);
       });
   };
   return (

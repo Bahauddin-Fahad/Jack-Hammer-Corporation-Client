@@ -1,10 +1,11 @@
-// import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import useReactQuery from "../../../Hooks/useReactQuery";
-// import Loading from "../../Shared/Loading";
+import DeleteUserModal from "./DeleteUserModal";
+
 import UserList from "./UserList";
 const MakeAdmin = () => {
-  const url = "https://jack-hammer-corporation-server.herokuapp.com/users";
+  const [deleteUser, setDeleteUser] = useState(null);
+  const url = "http://localhost:5000/users";
   const header = {
     headers: {
       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -34,10 +35,18 @@ const MakeAdmin = () => {
                 index={index}
                 refetch={refetch}
                 user={user}
+                setDeleteUser={setDeleteUser}
               />
             ))}
           </tbody>
         </table>
+        {deleteUser && (
+          <DeleteUserModal
+            deleteUser={deleteUser}
+            setDeleteUser={setDeleteUser}
+            refetch={refetch}
+          />
+        )}
       </div>
     </div>
   );

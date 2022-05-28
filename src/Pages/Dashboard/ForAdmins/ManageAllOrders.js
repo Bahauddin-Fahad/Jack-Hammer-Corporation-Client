@@ -8,7 +8,7 @@ import axios from "axios";
 
 const ManageAllOrders = () => {
   const [order, setOrder] = useState(null);
-  const url = "https://jack-hammer-corporation-server.herokuapp.com/get/orders";
+  const url = "http://localhost:5000/get/orders";
   const header = {
     headers: {
       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -18,33 +18,23 @@ const ManageAllOrders = () => {
   const { data: orders, refetch } = useReactQuery(url, header);
   const handelShift = (id) => {
     axios
-      .patch(
-        `https://jack-hammer-corporation-server.herokuapp.com/order/shift/${id}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        }
-      )
+      .patch(`http://localhost:5000/order/shift/${id}`, {}, header)
       .then((data) => {
         console.log(data.data);
         if (data.data.modifiedCount > 0) {
-          toast.success("Product Successfully Shifted");
+          toast.success("Product Successfully Shifted", { theme: "colored" });
           refetch();
         }
       });
   };
 
   const cancelOrder = (id) => {
-    fetch(
-      `https://jack-hammer-corporation-server.herokuapp.com/order/cancel/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/order/cancel/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -55,14 +45,9 @@ const ManageAllOrders = () => {
   };
   return (
     <>
-      <h2 className="text-center text-3xl mt-5 mb-5 font-bold">
-        Manage All Orders
+      <h2 className="text-left ml-3 text-lg text-primary font-bold">
+        Manage All Orders {orders?.length}
       </h2>
-      <h2 className="text-center text-2xl mt-5 mb-5 font-bold">
-        {" "}
-        Total Orders: {orders?.length}{" "}
-      </h2>
-
       <div className="overflow-x-auto mx-3">
         <table className="table w-full">
           <thead>
@@ -77,8 +62,8 @@ const ManageAllOrders = () => {
                 Total Amount <small>(USD)</small>
               </th>
               <th>Status</th>
-              <th>Transaction ID</th>
               <th>Action</th>
+              <th>Transaction ID</th>
             </tr>
           </thead>
           <tbody>

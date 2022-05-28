@@ -24,7 +24,7 @@ const CancelOrderUser = ({ cancelOrder, order }) => {
             <div className="modal-action">
               <label
                 htmlFor="cancel-order-user-modal"
-                className="btn btn-error"
+                className="btn btn-sm btn-outline btn-error"
                 onClick={() => cancelOrder(order._id)}
               >
                 Confirm

@@ -20,6 +20,7 @@ const OrderForm = ({ tool, refetch }) => {
   const [user] = useAuthState(auth);
 
   const quantityCheck = (e) => {
+    const orderButton = document.getElementById("order-button");
     const inputQuantity = parseInt(e.target.value);
     if (inputQuantity < minOrderQuantity) {
       setError(
@@ -27,14 +28,18 @@ const OrderForm = ({ tool, refetch }) => {
           Can't Order Below Minimum Order Quantity
         </p>
       );
+
+      orderButton.setAttribute("disabled", true);
     } else if (inputQuantity > availableQuantity) {
       setError(
         <p className="text-sm text-primary font-bold mt-2">
           Sorry!! The Quantity you want is not available right now
         </p>
       );
+      orderButton.setAttribute("disabled", true);
     } else {
       setError("");
+      orderButton.removeAttribute("disabled");
     }
     setQuantity(inputQuantity);
   };
@@ -60,10 +65,13 @@ const OrderForm = ({ tool, refetch }) => {
         shift: false,
       };
       setError("");
-      const orderUrl =
-        "https://jack-hammer-corporation-server.herokuapp.com/order";
-      await axios.post(orderUrl, orderDetails).then((response) => {
-        console.log(response.data.orderDetails);
+      const orderUrl = "http://localhost:5000/order";
+      const header = {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      };
+      await axios.post(orderUrl, orderDetails, header).then((response) => {
         if (response.data.success) {
           toast.success(
             `Your order for ${quantity} pieces of ${tool?.name} is Confirmed`,
@@ -75,9 +83,8 @@ const OrderForm = ({ tool, refetch }) => {
           reset();
           const remaniningQuantity = availableQuantity - quantity;
           const newAvailableQuantity = { remaniningQuantity };
-          const url = `https://jack-hammer-corporation-server.herokuapp.com/tool/${_id}`;
-          axios.put(url, newAvailableQuantity).then((res) => {
-            console.log(res);
+          const url = `http://localhost:5000/tool/${_id}`;
+          axios.put(url, newAvailableQuantity, header).then((res) => {
             refetch();
           });
         } else {
@@ -148,7 +155,7 @@ const OrderForm = ({ tool, refetch }) => {
               <input
                 onChange={quantityCheck}
                 className="input input-bordered text-secondary font-semibold"
-                value={quantity || minOrderQuantity}
+                value={quantity || 0}
                 type="number"
                 required
               />
@@ -174,17 +181,16 @@ const OrderForm = ({ tool, refetch }) => {
               </label>
               <input
                 className="input input-bordered text-secondary font-semibold placeholder:text-secondary"
-                value={quantity * price || minOrderQuantity * price}
+                value={quantity * price || 0}
                 type="number"
                 required
                 readOnly
-                // {...register("totalPrice", { required: true })}
               />
             </div>
           </div>
           {error}
           <div className="form-control mt-6">
-            <button className="btn btn-primary" type="submit">
+            <button id="order-button" className="btn btn-primary" type="submit">
               Place Order
             </button>
           </div>
