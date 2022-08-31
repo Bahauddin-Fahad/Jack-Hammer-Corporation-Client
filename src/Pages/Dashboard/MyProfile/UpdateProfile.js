@@ -32,7 +32,11 @@ const UpdateProfile = ({ refetch }) => {
     });
   };
   return (
-    <div className="max-w-sm w-full ">
+    <div
+      data-aos="fade-left"
+      data-aos-duration="500"
+      className="max-w-sm w-full "
+    >
       <form
         className="form card min-h-0 h-full w-full max-w-lg shadow-2xl glass pb-5"
         onSubmit={handleSubmit(onSubmit)}

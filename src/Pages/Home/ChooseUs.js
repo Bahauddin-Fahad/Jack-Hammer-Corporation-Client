@@ -7,7 +7,11 @@ const ChooseUs = () => {
         Why Choose Jack Hammer Corp.
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-5">
-        <div className=" text-white h-64 glass bg-secondary hover:bg-secondary rounded-lg flex flex-col justify-evenly p-3 shadow-lg ring-2 ring-primary">
+        <div
+          data-aos="flip-up"
+          data-aos-duration="1000"
+          className="text-white h-64 glass bg-secondary hover:bg-secondary rounded-lg flex flex-col justify-evenly p-3 shadow-lg ring-2 ring-primary"
+        >
           <div className="text-center font-bold uppercase text-4xl">
             CUSTOM QUOTES
           </div>
@@ -18,7 +22,11 @@ const ChooseUs = () => {
             Request a quote
           </button>
         </div>
-        <div className=" text-white h-72 glass bg-secondary hover:bg-secondary rounded-lg flex flex-col justify-evenly p-3 shadow-lg ring-2 ring-primary">
+        <div
+          data-aos="flip-up"
+          data-aos-duration="1500"
+          className="text-white h-72 glass bg-secondary hover:bg-secondary rounded-lg flex flex-col justify-evenly p-3 shadow-lg ring-2 ring-primary"
+        >
           <div className="text-center font-bold uppercase text-4xl">
             WORLDWIDE SHIPPING
           </div>
@@ -29,7 +37,11 @@ const ChooseUs = () => {
             Select Your Country
           </button>
         </div>
-        <div className=" text-white h-64 glass bg-secondary hover:bg-secondary rounded-lg flex flex-col justify-evenly p-3 shadow-lg ring-2 ring-primary">
+        <div
+          data-aos="flip-up"
+          data-aos-duration="2000"
+          className="text-white h-64 glass bg-secondary hover:bg-secondary rounded-lg flex flex-col justify-evenly p-3 shadow-lg ring-2 ring-primary"
+        >
           <div className="text-center font-bold uppercase text-4xl">
             CUSTOMER SERVICE
           </div>

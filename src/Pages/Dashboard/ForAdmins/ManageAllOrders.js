@@ -55,7 +55,7 @@ const ManageAllOrders = () => {
       <h2 className="text-left ml-3 text-lg text-primary font-bold">
         Manage All Orders {orders?.length}
       </h2>
-      <div className="overflow-x-auto mx-3">
+      <div data-aos="zoom-in-up" className="overflow-x-auto mx-3">
         <table className="table w-full">
           <thead>
             <tr>

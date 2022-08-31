@@ -1,6 +1,8 @@
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, useLocation } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyOrders from "./Pages/Dashboard/ForUsers/MyOrders";
 import AddAReview from "./Pages/Dashboard/ForUsers/AddAReview";
@@ -24,16 +26,20 @@ import Payment from "./Pages/Dashboard/ForUsers/Payment";
 import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import ReviewsComp from "./Pages/Reviews/ReviewsComp";
 import { useEffect } from "react";
+import OrderTools from "./Pages/Home/OrderTools";
+AOS.init();
+
 function App() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
-    <div className="App">
+    <div className="App bg-gray-300">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/orderTools" element={<OrderTools />} />
         <Route path="/home" element={<Home />} />
         <Route
           path="/purchase/:toolId"

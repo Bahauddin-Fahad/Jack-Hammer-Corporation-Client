@@ -4,6 +4,7 @@ import AboutUs from "./AboutUs";
 import Banner from "./Banner";
 import BusinessSummery from "./BusinessSummery";
 import ChooseUs from "./ChooseUs";
+import ContactUs from "./ContactUs";
 import Tools from "./Tools";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <ChooseUs />
       <BusinessSummery />
       <Reviews />
+      <ContactUs />
     </div>
   );
 };

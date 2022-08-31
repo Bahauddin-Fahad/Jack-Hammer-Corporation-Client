@@ -10,7 +10,11 @@ const Review = ({ review }) => {
     return star;
   };
   return (
-    <div className="w-11/12 rounded-lg p-3 ring-2 ring-primary font-medium bg-secondary hover:bg-secondary mb-8 shadow-lg glass text-white flex flex-col justify-between mx-auto">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-duration="500"
+      className="w-11/12 rounded-lg p-3 ring-2 ring-primary font-medium bg-secondary hover:bg-secondary mb-8 shadow-lg glass text-white flex flex-col justify-between mx-auto"
+    >
       <div className="flex justify-center my-2">
         <div className="flex justify-center items-center w-28 h-28 bg-secondary rounded-full ring-white ring-2 shadow-xl">
           <img

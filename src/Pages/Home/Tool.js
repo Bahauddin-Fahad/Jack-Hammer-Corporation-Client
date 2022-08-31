@@ -13,7 +13,10 @@ const Tool = ({ tool }) => {
     price,
   } = tool;
   return (
-    <div className="card glass hover:bg-secondary mx-auto bg-secondary text-white">
+    <div
+      data-aos="fade-up"
+      className="card glass hover:bg-secondary mx-auto bg-secondary text-white"
+    >
       <div className="card glass mx-auto mt-3">
         <figure>
           <img src={img} alt="product" className="h-56" />

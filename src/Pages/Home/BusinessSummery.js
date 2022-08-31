@@ -8,7 +8,11 @@ const BusinessSummery = () => {
     <div>
       <h2 className="text-4xl font-bold mb-3">Business Summery</h2>
       <div className="w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 lg:gap-x-1 rounded-xl shadow text-white">
-        <div className="stat flex flex-col bg-secondary rounded-xl md:rounded-r-none lg:rounded-l-xl lg:rounded-none ">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="500"
+          className="stat flex flex-col bg-secondary rounded-xl md:rounded-r-none lg:rounded-l-xl lg:rounded-none "
+        >
           <div className="stat-figure text-primary">
             <TiGroupOutline className="h-10 w-10" />
           </div>
@@ -20,7 +24,11 @@ const BusinessSummery = () => {
             <div className="stat-desc">32% more than last month</div>
           </div>
         </div>
-        <div className="stat glass hover:bg-secondary flex flex-col bg-secondary rounded-xl md:rounded-l-none lg:rounded-none">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="500"
+          className="stat glass hover:bg-secondary flex flex-col bg-secondary rounded-xl md:rounded-l-none lg:rounded-none"
+        >
           <div className="stat-figure text-white">
             <HiTrendingUp className="h-10 w-10" />
           </div>
@@ -32,7 +40,11 @@ const BusinessSummery = () => {
             <div className="stat-desc">18% more than last month</div>
           </div>
         </div>
-        <div className="stat flex flex-col bg-secondary rounded-xl md:rounded-r-none lg:rounded-none ">
+        <div
+          data-aos="fade-down"
+          data-aos-duration="500"
+          className="stat flex flex-col bg-secondary rounded-xl md:rounded-r-none lg:rounded-none "
+        >
           <div className="stat-figure text-primary">
             <HiOutlinePencilAlt className="h-10 w-10" />
           </div>
@@ -46,7 +58,11 @@ const BusinessSummery = () => {
             </div>
           </div>
         </div>
-        <div className="stat glass hover:bg-secondary flex flex-col bg-secondary rounded-xl md:rounded-l-none lg:rounded-r-xl  lg:rounded-none">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="500"
+          className="stat glass hover:bg-secondary flex flex-col bg-secondary rounded-xl md:rounded-l-none lg:rounded-r-xl  lg:rounded-none"
+        >
           <div className="stat-figure text-white">
             <FaTools className="h-10 w-10" />
           </div>

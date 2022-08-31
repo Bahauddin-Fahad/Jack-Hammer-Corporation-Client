@@ -45,7 +45,7 @@ const AddATool = () => {
       <h2 className="text-left ml-3 text-lg text-primary font-bold">
         Add A Tool
       </h2>
-      <div className="flex justify-center">
+      <div data-aos="zoom-in-up" className="flex justify-center">
         <form
           className="form card w-full max-w-md sm:max-w-lg lg:max-w-lg shadow-2xl glass mx-3 "
           onSubmit={handleSubmit(onSubmit)}

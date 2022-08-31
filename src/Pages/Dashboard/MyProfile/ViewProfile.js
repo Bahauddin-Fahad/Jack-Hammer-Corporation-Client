@@ -4,7 +4,11 @@ const ViewProfile = ({ profile }) => {
   const img =
     profile?.img || "https://i.ibb.co/pvmWXsv/male-placeholder-image.jpg";
   return (
-    <div className="max-w-sm w-full">
+    <div
+      data-aos="fade-right"
+      data-aos-duration="500"
+      className="max-w-sm w-full"
+    >
       <div className="card min-h-0 h-full border-2 w-full max-w-lg shadow-2xl ">
         <h2 className="text-2xl font-bold  underline text-white mt-8">
           My Profile
